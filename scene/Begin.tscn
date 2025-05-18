@@ -1,0 +1,103 @@
+[gd_scene load_steps=7 format=3 uid="uid://vgyu1plwjec4"]
+
+[ext_resource type="Texture2D" uid="uid://dt08i0erqhxo" path="res://imgs/ChatGPT Image 2025年5月11日 13_11_34.png" id="1_fer7f"]
+[ext_resource type="Texture2D" uid="uid://bb108migadj4n" path="res://fonts/开场白@1x.png" id="1_gr7uc"]
+[ext_resource type="Script" path="res://scripts/begin.gd" id="1_wfjvt"]
+[ext_resource type="FontFile" uid="uid://coe0e2m4b4h1h" path="res://fonts/fusion-pixel-12px-monospaced-zh_hans.ttf" id="3_hhjn1"]
+[ext_resource type="Theme" uid="uid://doh32vldp2750" path="res://tres/Begin.tres" id="5_7v6od"]
+[ext_resource type="AudioStream" uid="uid://cqv1b2t1corrf" path="res://audio/main_bgm.mp3" id="6_jl2xs"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wfjvt")
+
+[node name="开场白_1x" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(0.41598, 0.41598, 0.415981, 1)
+position = Vector2(576, 324.5)
+scale = Vector2(0.6, 0.600926)
+texture = ExtResource("1_gr7uc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 324.5)
+scale = Vector2(0.75, 0.633789)
+texture = ExtResource("1_fer7f")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 152.0
+offset_right = 327.0
+offset_bottom = 180.0
+theme_override_fonts/font = ExtResource("3_hhjn1")
+theme_override_font_sizes/font_size = 22
+text = "Howard Jones made it."
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 79.0
+offset_right = 327.0
+offset_bottom = 141.0
+theme_override_fonts/font = ExtResource("3_hhjn1")
+theme_override_font_sizes/font_size = 60
+text = "青囊遗章"
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 268.0
+offset_right = 318.0
+offset_bottom = 331.0
+focus_neighbor_top = NodePath("../ExitButton")
+focus_neighbor_bottom = NodePath("../ContinueButton")
+theme = ExtResource("5_7v6od")
+text = "开始游戏"
+
+[node name="ContinueButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 343.0
+offset_right = 318.0
+offset_bottom = 406.0
+focus_neighbor_top = NodePath("../StartButton")
+focus_neighbor_bottom = NodePath("../SettingButton")
+theme = ExtResource("5_7v6od")
+disabled = true
+text = "继续游戏"
+
+[node name="SettingButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 421.0
+offset_right = 318.0
+offset_bottom = 484.0
+focus_neighbor_top = NodePath("../ContinueButton")
+focus_neighbor_bottom = NodePath("../ExitButton")
+theme = ExtResource("5_7v6od")
+text = "设置"
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 496.0
+offset_right = 317.0
+offset_bottom = 559.0
+focus_neighbor_top = NodePath("../SettingButton")
+focus_neighbor_bottom = NodePath("../StartButton")
+theme = ExtResource("5_7v6od")
+text = "退出"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_jl2xs")
+volume_db = -12.18
+autoplay = true
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="SettingButton" to="." method="_on_setting_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

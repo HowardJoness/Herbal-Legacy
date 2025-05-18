@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://djmel73hjdohm"]
+
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_fa00v"]
+[ext_resource type="AudioStream" uid="uid://dh4ftxrdl0jhw" path="res://audio/rainy.mp3" id="2_wbr6g"]
+
+[node name="GameManager" type="Node2D"]
+script = ExtResource("1_fa00v")
+
+[node name="RainBGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_wbr6g")

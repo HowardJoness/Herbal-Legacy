@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://co3kutwp0y3bs"]
+
+[ext_resource type="Script" path="res://scripts/setting.gd" id="1_660s2"]
+[ext_resource type="Texture2D" uid="uid://dt08i0erqhxo" path="res://imgs/ChatGPT Image 2025年5月11日 13_11_34.png" id="1_plofv"]
+[ext_resource type="FontFile" uid="uid://coe0e2m4b4h1h" path="res://fonts/fusion-pixel-12px-monospaced-zh_hans.ttf" id="3_bn1jo"]
+[ext_resource type="Theme" uid="uid://doh32vldp2750" path="res://tres/Begin.tres" id="4_4q2d3"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_660s2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.385493, 0.385492, 0.385492, 1)
+position = Vector2(576, 324.5)
+scale = Vector2(0.75, 0.633789)
+texture = ExtResource("1_plofv")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = -37.5
+offset_right = 234.0
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_bn1jo")
+theme_override_font_sizes/font_size = 36
+text = "一个破像素风游戏要什么设置
+回家吧孩子 回家吧"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 115.0
+offset_right = 217.0
+offset_bottom = 151.0
+theme_override_fonts/font = ExtResource("3_bn1jo")
+theme_override_font_sizes/font_size = 36
+text = "设置"
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 21.0
+offset_right = 176.0
+offset_bottom = 78.0
+theme = ExtResource("4_4q2d3")
+text = "< 返回"
+
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
