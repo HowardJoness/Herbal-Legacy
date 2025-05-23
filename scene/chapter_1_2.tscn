@@ -1839,6 +1839,7 @@ stream = ExtResource("9_k7u5t")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_71qe5")
+use_parent_material = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

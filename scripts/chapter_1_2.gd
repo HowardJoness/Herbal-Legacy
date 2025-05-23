@@ -76,6 +76,11 @@ func _on_dialogue_finished():
 	await get_tree().create_timer(1).timeout
 	GameManager.task = "打开爷爷给予你的书本"
 	GameManager.tips = "按 B 键打开书本"
+	var texture_rect = $CanvasLayer/TextureRect
+	if texture_rect.material and texture_rect.material is ShaderMaterial:
+		var shader_material = texture_rect.material as ShaderMaterial
+		shader_material.set_shader_parameter("lod", 2.64)  # 参数名要和Shader一致
+		print("LOD set directly to ShaderMaterial")
 
 func _on_event_triggered(event_name):
 	if event_name == "Showbook":
