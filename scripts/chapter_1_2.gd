@@ -4,7 +4,7 @@ var nottalking = true
 var PlotAlreadyPlayed: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
+	$CanvasLayer/White.visible = false
 	GameManager.scenedebug = "..."
 	$RainBGM.play()
 	$Player.add_to_group("player")
@@ -19,6 +19,13 @@ func _process(delta: float) -> void:
 	if PlotAlreadyPlayed:
 		if Input.is_key_pressed(KEY_B):
 			GameManager.scenedebug = "玩家按下了按键B"
+			PlotAlreadyPlayed = false
+			GameManager.scenedebug = "出书动画开始播放"
+			GameManager.task = ""
+			GameManager.tips = ""
+			$CanvasLayer/BookseekPlayer.play("bookseek")
+		else:
+			GameManager.scenedebug = "s"
 
 
 
@@ -85,18 +92,7 @@ func _on_dialogue_finished():
 	GameManager.scenedebug = "剧情结束"
 	GameManager.task = "打开爷爷给予你的书本"
 	GameManager.tips = "按 B 键打开书本"
-	"""
-	屏幕逐渐变模糊代码：
-	
-	var texture_rect = $CanvasLayer/TextureRect
-	if texture_rect.material and texture_rect.material is ShaderMaterial:
-		var shader_material = texture_rect.material as ShaderMaterial
-		var i = 0.0
-		while i <= 2.64:
-			shader_material.set_shader_parameter("lod", i)
-			await get_tree().create_timer(0.008).timeout
-			i += 0.2
-	"""
+	PlotAlreadyPlayed = true
 		
 func _on_event_triggered(event_name):
 	if event_name == "Showbook":
@@ -108,3 +104,25 @@ func _on_event_triggered(event_name):
 			if grandpa_is_alive == true:
 				$Grandpa/AnimatedSprite2D.modulate.a = i * 0.01
 				await get_tree().create_timer(0.008).timeout
+
+
+func _OnBookseekPlayed(anim_name: StringName) -> void:
+	var texture_rect = $CanvasLayer/TextureRect
+	if texture_rect.material and texture_rect.material is ShaderMaterial:
+		var shader_material = texture_rect.material as ShaderMaterial
+		var i = 0.0
+		while i <= 2.64:
+			shader_material.set_shader_parameter("lod", i)
+			await get_tree().create_timer(0.008).timeout
+			i += 0.2
+	GameManager.scenedebug = "伪对焦完毕 等待时间<3.01"
+	
+	while $CanvasLayer/BookseekPlayer.current_animation_position < 3.01:
+		await get_tree().create_timer(0.1).timeout
+	GameManager.scenedebug = "超时"
+	$CanvasLayer/White.visible = true
+	for i in range(0,100,5):
+		$CanvasLayer/White.modulate.a = i * 0.01
+		await get_tree().create_timer(0.0002).timeout
+	await get_tree().create_timer(1).timeout
+	SceneManager.change_scene("uid://vsvc6wy7tl7w")

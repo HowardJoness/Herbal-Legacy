@@ -3,8 +3,6 @@ extends CanvasLayer
 
 func _process(delta: float) -> void:
 	
-	print(typeof(GameManager.developer_mode))
-	print(GameManager.developer_mode)
 	
 	if GameManager.developer_mode:
 		$".".visible = true

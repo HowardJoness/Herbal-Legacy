@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=4 uid="uid://g0x1c5b5amcg"]
+[gd_scene load_steps=62 format=4 uid="uid://g0x1c5b5amcg"]
 
 [ext_resource type="Texture2D" uid="uid://ursmgy12k2mg" path="res://imgs/TopDownHouse_FloorsAndWalls.png" id="1_g5dot"]
 [ext_resource type="Texture2D" uid="uid://dahh8ipjkac0w" path="res://imgs/Interiors_free_16x16.png" id="1_lwkb3"]
@@ -1729,6 +1729,91 @@ _data = {
 shader = ExtResource("11_pd5fl")
 shader_parameter/lod = 0.0
 
+[sub_resource type="Animation" id="Animation_pd5fl"]
+resource_name = "bookseek"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.566667),
+"transitions": PackedFloat32Array(0.353553, 0.999999),
+"update": 0,
+"values": [Vector2(577, 867.9), Vector2(577, 300)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.566667, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 0.466516, 1, 1),
+"update": 0,
+"values": [-1.39626, -0.349066, 0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.566667, 3, 3.83333),
+"transitions": PackedFloat32Array(0.353553, 0.999999, 0.277393, 1),
+"update": 0,
+"values": [Vector2(0.93, 0.93), Vector2(1, 1), Vector2(1, 1), Vector2(3.085, 3.085)]
+}
+
+[sub_resource type="Animation" id="Animation_tne68"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(577, 1000)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_71qe5"]
+_data = {
+&"RESET": SubResource("Animation_tne68"),
+&"bookseek": SubResource("Animation_pd5fl")
+}
+
 [node name="Chapter1_2" type="Node2D"]
 material = SubResource("ShaderMaterial_4sfjr")
 script = ExtResource("1_s8x5g")
@@ -1847,8 +1932,27 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("12_tne68")
 
+[node name="BookseekPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+root_node = NodePath("../Cover2")
+libraries = {
+&"": SubResource("AnimationLibrary_71qe5")
+}
+
+[node name="Cover2" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(577, 1000)
+texture = ExtResource("8_rmiaj")
+
+[node name="White" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="TaskShow" parent="CanvasLayer" instance=ExtResource("11_hhuma")]
 
 [connection signal="body_entered" from="Grandpa/CollisionShape2D/GrandPa" to="." method="_on_grand_pa_body_entered"]
 [connection signal="body_exited" from="Grandpa/CollisionShape2D/GrandPa" to="." method="_on_grand_pa_body_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="animation_started" from="CanvasLayer/BookseekPlayer" to="." method="_OnBookseekPlayed"]
