@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dt08i0erqhxo" path="res://imgs/ChatGPT Image 2025年5月11日 13_11_34.png" id="1_fer7f"]
 [ext_resource type="Texture2D" uid="uid://bb108migadj4n" path="res://fonts/开场白@1x.png" id="1_gr7uc"]
-[ext_resource type="Script" path="res://scripts/begin.gd" id="1_wfjvt"]
+[ext_resource type="Script" uid="uid://dqhveobu12mk8" path="res://scripts/begin.gd" id="1_wfjvt"]
 [ext_resource type="FontFile" uid="uid://coe0e2m4b4h1h" path="res://fonts/fusion-pixel-12px-monospaced-zh_hans.ttf" id="3_hhjn1"]
 [ext_resource type="Theme" uid="uid://doh32vldp2750" path="res://tres/Begin.tres" id="5_7v6od"]
 [ext_resource type="AudioStream" uid="uid://cqv1b2t1corrf" path="res://audio/main_bgm.mp3" id="6_jl2xs"]

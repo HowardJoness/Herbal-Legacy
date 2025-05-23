@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ursmgy12k2mg" path="res://imgs/TopDownHouse_FloorsAndWalls.png" id="1_g5dot"]
 [ext_resource type="Texture2D" uid="uid://dahh8ipjkac0w" path="res://imgs/Interiors_free_16x16.png" id="1_lwkb3"]
-[ext_resource type="Script" path="res://scripts/chapter_1_2.gd" id="1_s8x5g"]
+[ext_resource type="Script" uid="uid://7ro02vfyowmu" path="res://scripts/chapter_1_2.gd" id="1_s8x5g"]
 [ext_resource type="Texture2D" uid="uid://deygly1a8jc1b" path="res://imgs/FreePixel.png" id="2_yi8e8"]
 [ext_resource type="Texture2D" uid="uid://b6pyofqfgldif" path="res://imgs/idle_right_down.png" id="4_onqga"]
 [ext_resource type="Texture2D" uid="uid://7h3efglmgmaw" path="res://imgs/walk_right_down.png" id="5_msakc"]
@@ -1717,8 +1717,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0nm2a"]
 _data = {
-"RESET": SubResource("Animation_vg76b"),
-"bookseek": SubResource("Animation_c68qr")
+&"RESET": SubResource("Animation_vg76b"),
+&"bookseek": SubResource("Animation_c68qr")
 }
 
 [node name="Chapter1_2" type="Node2D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://co3kutwp0y3bs"]
 
-[ext_resource type="Script" path="res://scripts/setting.gd" id="1_660s2"]
+[ext_resource type="Script" uid="uid://j2vn3fks4ytn" path="res://scripts/setting.gd" id="1_660s2"]
 [ext_resource type="Texture2D" uid="uid://dt08i0erqhxo" path="res://imgs/ChatGPT Image 2025年5月11日 13_11_34.png" id="1_plofv"]
 [ext_resource type="FontFile" uid="uid://coe0e2m4b4h1h" path="res://fonts/fusion-pixel-12px-monospaced-zh_hans.ttf" id="3_bn1jo"]
 [ext_resource type="Theme" uid="uid://doh32vldp2750" path="res://tres/Begin.tres" id="4_4q2d3"]
