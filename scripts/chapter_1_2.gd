@@ -85,4 +85,4 @@ func _on_event_triggered(event_name):
 			for i in range(100, 0, -1):
 				if grandpa_is_alive == true:
 					$Grandpa/AnimatedSprite2D.modulate.a = i * 0.01
-					await get_tree().create_timer(0.1).timeout
+					await get_tree().create_timer(0.008).timeout
