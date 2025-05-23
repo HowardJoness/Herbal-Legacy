@@ -1806,8 +1806,8 @@ shape = SubResource("WorldBoundaryShape2D_et4k7")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0.313726)
-offset_right = 705.0
-offset_bottom = 258.0
+offset_right = 438.0
+offset_bottom = 229.0
 color = Color(0, 0, 0, 1)
 
 [node name="Button" type="Button" parent="."]

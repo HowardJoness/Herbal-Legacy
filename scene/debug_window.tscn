@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://deltwcw5cy3xy"]
+
+[ext_resource type="Script" uid="uid://30gpbhb0ol4c" path="res://scripts/debug_window.gd" id="1_8osiw"]
+
+[node name="DebugWindow" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_8osiw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -322.0
+offset_bottom = 428.0
+grow_horizontal = 0
+color = Color(0, 0, 0, 0.427451)
+
+[node name="DebugWindows" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -326.0
+offset_bottom = 101.0
+grow_horizontal = 0
+text = "调试窗
+【Tips】现在开发者模式已启用，您将看到本游戏的全局变量及场景调试信息。"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="GameManager" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -326.0
+offset_top = 105.0
+offset_bottom = 162.0
+grow_horizontal = 0
+text = "GameManager 变量 :
+developer_mode: true"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="SceneDebug" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -325.0
+offset_top = 174.0
+offset_right = 1.0
+offset_bottom = 231.0
+grow_horizontal = 0
+text = "场景调试信息 :
+..."
+horizontal_alignment = 1
+autowrap_mode = 3

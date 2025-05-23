@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dx8af5gtxvonq"]
 
-[ext_resource type="Script" uid="uid://cav2g0s3wjgwx" path="res://scene/chapeter_1_0.gd" id="1_ouwlo"]
+[ext_resource type="Script" uid="uid://cav2g0s3wjgwx" path="res://scripts/chapeter_1_0.gd" id="1_ouwlo"]
 [ext_resource type="FontFile" uid="uid://coe0e2m4b4h1h" path="res://fonts/fusion-pixel-12px-monospaced-zh_hans.ttf" id="1_u67wi"]
 
 [node name="Chapeter1_0" type="Control"]
