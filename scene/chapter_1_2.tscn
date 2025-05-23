@@ -1816,7 +1816,7 @@ texture = ExtResource("8_rmiaj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_0nm2a")
+&"": SubResource("AnimationLibrary_0nm2a")
 }
 
 [node name="RainBGM" type="AudioStreamPlayer2D" parent="."]

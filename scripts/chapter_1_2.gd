@@ -1,5 +1,5 @@
 extends Node2D
-
+var grandpa_is_alive = true
 var nottalking = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -67,10 +67,22 @@ func _on_button_pressed() -> void:
 	Dialogic.start("Character1_2_TalkWithGrandFather")
 	Dialogic.timeline_ended.connect(_on_dialogue_finished)
 	Dialogic.signal_event.connect(_on_event_triggered)
+	
+	
 func _on_dialogue_finished():
 	nottalking = true
+	grandpa_is_alive = false
+	$Grandpa.queue_free()
+	await get_tree().create_timer(1).timeout
+	GameManager.task = "打开爷爷给予你的书本"
+	GameManager.tips = "按 B 键打开书本"
 
 func _on_event_triggered(event_name):
 	if event_name == "Showbook":
 		$Cover.visible = true
 		$AnimationPlayer.play("bookseek")
+	elif event_name == "die":
+			for i in range(100, 0, -1):
+				if grandpa_is_alive == true:
+					$Grandpa/AnimatedSprite2D.modulate.a = i * 0.01
+					await get_tree().create_timer(0.1).timeout
