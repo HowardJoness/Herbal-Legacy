@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://g0x1c5b5amcg"]
+[gd_scene load_steps=64 format=4 uid="uid://g0x1c5b5amcg"]
 
 [ext_resource type="Texture2D" uid="uid://ursmgy12k2mg" path="res://imgs/TopDownHouse_FloorsAndWalls.png" id="1_g5dot"]
 [ext_resource type="Texture2D" uid="uid://dahh8ipjkac0w" path="res://imgs/Interiors_free_16x16.png" id="1_lwkb3"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://r4mbrlc3858h" path="res://scene/TaskShow.tscn" id="11_hhuma"]
 [ext_resource type="Shader" uid="uid://cuuvsf7llgb6g" path="res://Shaders/Blur.gdshader" id="11_pd5fl"]
 [ext_resource type="Texture2D" uid="uid://cggmhpvh5ffqt" path="res://icon.svg" id="12_tne68"]
+[ext_resource type="AudioStream" uid="uid://be3hv81ob0fql" path="res://audio/chapter_1_2_BookOpen/BookSlide.mp3" id="14_71qe5"]
+[ext_resource type="AudioStream" uid="uid://d3pa2553anhnv" path="res://audio/chapter_1_2_BookOpen/BookOpen.mp3" id="15_g6m4i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4sfjr"]
 
@@ -1950,7 +1952,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Black" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="TaskShow" parent="CanvasLayer" instance=ExtResource("11_hhuma")]
+
+[node name="BookSlide" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(104, 64)
+stream = ExtResource("14_71qe5")
+
+[node name="BookOpen" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(104, 64)
+stream = ExtResource("15_g6m4i")
 
 [connection signal="body_entered" from="Grandpa/CollisionShape2D/GrandPa" to="." method="_on_grand_pa_body_entered"]
 [connection signal="body_exited" from="Grandpa/CollisionShape2D/GrandPa" to="." method="_on_grand_pa_body_exited"]

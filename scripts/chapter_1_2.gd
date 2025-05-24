@@ -1,7 +1,7 @@
 extends Node2D
 var grandpa_is_alive = true
 var nottalking = true
-var PlotAlreadyPlayed: bool = false
+var PlotAlreadyPlayed: bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$CanvasLayer/White.visible = false
@@ -107,6 +107,9 @@ func _on_event_triggered(event_name):
 
 
 func _OnBookseekPlayed(anim_name: StringName) -> void:
+	# 播放出书动画
+	$BookSlide.play()
+	GameManager.scenedebug = "执行伪对焦"
 	var texture_rect = $CanvasLayer/TextureRect
 	if texture_rect.material and texture_rect.material is ShaderMaterial:
 		var shader_material = texture_rect.material as ShaderMaterial
@@ -116,13 +119,23 @@ func _OnBookseekPlayed(anim_name: StringName) -> void:
 			await get_tree().create_timer(0.008).timeout
 			i += 0.2
 	GameManager.scenedebug = "伪对焦完毕 等待时间<3.01"
-	
+#
 	while $CanvasLayer/BookseekPlayer.current_animation_position < 3.01:
+		## 新增功能: 检查动画播放时间
+		if $CanvasLayer/BookseekPlayer.current_animation_position >= 2.9 and $CanvasLayer/BookseekPlayer.current_animation_position < 3.0:
+			$BookOpen.play()
 		await get_tree().create_timer(0.1).timeout
+		GameManager.scenedebug = str($CanvasLayer/BookseekPlayer.current_animation_position)
+
 	GameManager.scenedebug = "超时"
 	$CanvasLayer/White.visible = true
-	for i in range(0,100,5):
+	for i in range(0, 100, 5):
 		$CanvasLayer/White.modulate.a = i * 0.01
 		await get_tree().create_timer(0.0002).timeout
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1.4).timeout
+	$CanvasLayer/Black.visible = true
+	for i in range(0, 100, 5):
+		$CanvasLayer/Black.modulate.a = i * 0.01
+		await get_tree().create_timer(0.0002).timeout
+	await get_tree().create_timer(3).timeout
 	SceneManager.change_scene("uid://vsvc6wy7tl7w")
