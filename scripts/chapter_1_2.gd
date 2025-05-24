@@ -1,12 +1,13 @@
 extends Node2D
 var grandpa_is_alive = true
 var nottalking = true
-var PlotAlreadyPlayed: bool = true
+var PlotAlreadyPlayed: bool = false
+var FinishAnimation:bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$CanvasLayer/White.visible = false
 	GameManager.scenedebug = "..."
-	$RainBGM.play()
+	
 	$Player.add_to_group("player")
 	$Button.modulate.a = 1
 	$Button.visible = false
@@ -26,7 +27,8 @@ func _process(delta: float) -> void:
 			$CanvasLayer/BookseekPlayer.play("bookseek")
 		else:
 			GameManager.scenedebug = "s"
-
+	if not($RainBGM.playing) and not(FinishAnimation):
+		$RainBGM.play()
 
 
 func _physics_process(delta: float) -> void:
@@ -119,11 +121,13 @@ func _OnBookseekPlayed(anim_name: StringName) -> void:
 			await get_tree().create_timer(0.008).timeout
 			i += 0.2
 	GameManager.scenedebug = "伪对焦完毕 等待时间<3.01"
-#
+#	
 	while $CanvasLayer/BookseekPlayer.current_animation_position < 3.01:
 		## 新增功能: 检查动画播放时间
 		if $CanvasLayer/BookseekPlayer.current_animation_position >= 2.9 and $CanvasLayer/BookseekPlayer.current_animation_position < 3.0:
 			$BookOpen.play()
+			FinishAnimation = true
+			$RainBGM.stop()
 		await get_tree().create_timer(0.1).timeout
 		GameManager.scenedebug = str($CanvasLayer/BookseekPlayer.current_animation_position)
 
@@ -137,5 +141,5 @@ func _OnBookseekPlayed(anim_name: StringName) -> void:
 	for i in range(0, 100, 5):
 		$CanvasLayer/Black.modulate.a = i * 0.01
 		await get_tree().create_timer(0.0002).timeout
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(1).timeout
 	SceneManager.change_scene("uid://vsvc6wy7tl7w")
