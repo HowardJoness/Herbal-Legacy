@@ -130,7 +130,7 @@ func _OnBookseekPlayed(anim_name: StringName) -> void:
 			$RainBGM.stop()
 		await get_tree().create_timer(0.1).timeout
 		GameManager.scenedebug = str($CanvasLayer/BookseekPlayer.current_animation_position)
-
+	
 	GameManager.scenedebug = "超时"
 	$CanvasLayer/White.visible = true
 	for i in range(0, 100, 5):
