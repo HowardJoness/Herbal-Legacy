@@ -41,10 +41,10 @@ text = "< 返回"
 
 [node name="Devilop" type="CheckButton" parent="."]
 layout_mode = 2
-offset_left = 167.0
-offset_top = 195.0
-offset_right = 295.0
-offset_bottom = 226.0
+offset_left = 131.0
+offset_top = 164.0
+offset_right = 259.0
+offset_bottom = 195.0
 text = "开发者模式"
 
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

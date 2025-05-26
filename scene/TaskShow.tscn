@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://r4mbrlc3858h"]
+[gd_scene load_steps=4 format=3 uid="uid://r4mbrlc3858h"]
 
 [ext_resource type="Script" uid="uid://bfi4sgsnmuir7" path="res://task_show.gd" id="1_4pved"]
+[ext_resource type="Texture2D" uid="uid://dtfevqhgs1tvm" path="res://imgs/组 1 (1).png" id="2_j11b7"]
 [ext_resource type="FontFile" uid="uid://coe0e2m4b4h1h" path="res://fonts/fusion-pixel-12px-monospaced-zh_hans.ttf" id="2_vt5gh"]
 
 [node name="TaskShow" type="Control"]
@@ -12,15 +13,27 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4pved")
 
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 346.0
+offset_bottom = 131.0
+texture = ExtResource("2_j11b7")
+patch_margin_left = 133
+patch_margin_top = 19
+patch_margin_right = 35
+patch_margin_bottom = 20
+
 [node name="Task" type="Label" parent="."]
 layout_mode = 0
-offset_left = 11.0
-offset_top = 10.0
-offset_right = 139.0
-offset_bottom = 55.0
+offset_left = 155.0
+offset_top = 29.0
+offset_right = 248.0
+offset_bottom = 92.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vt5gh")
-theme_override_font_sizes/font_size = 32
-horizontal_alignment = 1
+theme_override_font_sizes/font_size = 62
+text = "uuuu"
 
 [node name="Tips" type="Label" parent="."]
 layout_mode = 0
