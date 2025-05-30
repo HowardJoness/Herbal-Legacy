@@ -1,0 +1,100 @@
+[gd_scene load_steps=5 format=3 uid="uid://cy2uv0ybmwgqq"]
+
+[ext_resource type="FontFile" uid="uid://coe0e2m4b4h1h" path="res://fonts/fusion-pixel-12px-monospaced-zh_hans.ttf" id="1_1et7m"]
+[ext_resource type="Script" uid="uid://cua52kwh2vtyd" path="res://scripts/swz.gd" id="1_lw8ef"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lw8ef"]
+bg_color = Color(0.360784, 0.360784, 0.360784, 0.929412)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_labf1"]
+content_margin_right = 4.0
+bg_color = Color(0.329077, 0.594373, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lw8ef")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -104.0
+offset_top = 35.0
+offset_right = 105.0
+offset_bottom = 81.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_lw8ef")
+theme_override_styles/fill = SubResource("StyleBoxFlat_labf1")
+max_value = 10.0
+step = 1.0
+value = 10.0
+show_percentage = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.388235)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 551.0
+offset_top = 160.0
+offset_right = 615.0
+offset_bottom = 248.0
+rotation = -1.56842
+theme_override_fonts/font = ExtResource("1_1et7m")
+theme_override_font_sizes/font_size = 32
+text = "→"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 164.0
+offset_right = 922.0
+offset_bottom = 341.0
+theme_override_fonts/font = ExtResource("1_1et7m")
+theme_override_font_sizes/font_size = 32
+text = "这是您的声望值
+当您做出了正确的决策时，它将会增加。
+反之，当您做出了错误的决策时，它会扣除双倍。
+
+所以，您需要保证您做出的决策是正确的"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -61.0
+offset_top = -210.0
+offset_right = 62.0
+offset_bottom = -169.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_1et7m")
+theme_override_font_sizes/font_size = 16
+text = "好的我知道了"
