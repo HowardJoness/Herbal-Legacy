@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=4 uid="uid://dvqufn63yw7m8"]
+[gd_scene load_steps=66 format=4 uid="uid://dvqufn63yw7m8"]
 
 [ext_resource type="Script" uid="uid://dbxm6n6gmuwcg" path="res://scripts/chapter_2_1.gd" id="1_utpsi"]
 [ext_resource type="Texture2D" uid="uid://dblc8otpklugr" path="res://imgs/Top-Down_Retro_Interior/TopDownHouse_FloorsAndWalls.png" id="2_ls14b"]
@@ -7,9 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://dun4ne3ayp3lk" path="res://imgs/Top-Down_Retro_Interior/TopDownHouse_FurnitureState1.png" id="5_ulb6x"]
 [ext_resource type="Texture2D" uid="uid://cwvb013k5xvlf" path="res://imgs/Top-Down_Retro_Interior/TopDownHouse_FurnitureState2.png" id="6_ls14b"]
 [ext_resource type="Texture2D" uid="uid://ctma432q6rss6" path="res://imgs/Top-Down_Retro_Interior/TopDownHouse_SmallItems.png" id="6_qdne2"]
+[ext_resource type="Texture2D" uid="uid://vwmhwq6f120n" path="res://imgs/oldbook/paper.png" id="7_qdne2"]
 [ext_resource type="Texture2D" uid="uid://b6pyofqfgldif" path="res://imgs/idle_right_down.png" id="8_2abl7"]
 [ext_resource type="Texture2D" uid="uid://7h3efglmgmaw" path="res://imgs/walk_right_down.png" id="9_ulb6x"]
 [ext_resource type="AudioStream" uid="uid://bryqjn0egjopk" path="res://audio/walking_on_the_wood.mp3" id="10_ulb6x"]
+[ext_resource type="PackedScene" uid="uid://r4mbrlc3858h" path="res://scene/TaskShow.tscn" id="12_kq3ms"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kq3ms"]
 texture = ExtResource("2_ls14b")
@@ -2596,6 +2598,9 @@ sources/0 = SubResource("TileSetAtlasSource_gtpik")
 sources/1 = SubResource("TileSetAtlasSource_lfv5p")
 sources/2 = SubResource("TileSetAtlasSource_qdne2")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfv5p"]
+size = Vector2(48.5, 47)
+
 [node name="Chapter2_1" type="Node2D"]
 script = ExtResource("1_utpsi")
 metadata/_edit_vertical_guides_ = [288.0]
@@ -2693,14 +2698,13 @@ shape = SubResource("RectangleShape2D_yc2al")
 position = Vector2(216, 234.25)
 shape = SubResource("RectangleShape2D_gtpik")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-offset_right = 3849.0
-offset_bottom = 1926.0
-color = Color(0, 0, 0, 1)
+[node name="Paper" type="Sprite2D" parent="House"]
+position = Vector2(205, 201)
+scale = Vector2(0.0308812, 0.0295359)
+texture = ExtResource("7_qdne2")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(113, 153)
+position = Vector2(103, 25)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(103, 62)
@@ -2728,3 +2732,22 @@ tile_set = SubResource("TileSet_qxhfd")
 
 [node name="Step" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_ulb6x")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 3849.0
+offset_bottom = 1926.0
+color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TaskShow" parent="CanvasLayer" instance=ExtResource("12_kq3ms")]
+
+[node name="CanReadBookArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanReadBookArea"]
+position = Vector2(209.75, 204.5)
+shape = SubResource("RectangleShape2D_lfv5p")
+
+[connection signal="body_entered" from="CanReadBookArea" to="." method="_on_can_read_book_area_body_entered"]
+[connection signal="body_exited" from="CanReadBookArea" to="." method="_on_can_read_book_area_body_exited"]
