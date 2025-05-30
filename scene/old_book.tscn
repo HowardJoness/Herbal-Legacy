@@ -1,4 +1,26 @@
-[gd_scene format=3 uid="uid://dsal210ib2gbj"]
+[gd_scene load_steps=6 format=3 uid="uid://dsal210ib2gbj"]
+
+[ext_resource type="Script" uid="uid://cyd3dyl5x44mq" path="res://scripts/old_book.gd" id="1_8pb7v"]
+[ext_resource type="Texture2D" uid="uid://dgs0s32hsxxqm" path="res://imgs/oldbook/1.png" id="2_kab0j"]
+[ext_resource type="Texture2D" uid="uid://b8ncw3r7td3kn" path="res://imgs/oldbook/2.png" id="3_8snce"]
+[ext_resource type="Texture2D" uid="uid://bdm8ypcvcqh02" path="res://imgs/oldbook/3.png" id="4_ceiep"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4u882"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kab0j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8snce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ceiep")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
 
 [node name="OldBook" type="Control"]
 layout_mode = 3
@@ -7,3 +29,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8pb7v")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.388235)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(580, 334)
+scale = Vector2(1.57759, 1.57759)
+sprite_frames = SubResource("SpriteFrames_4u882")
+frame_progress = 0.48108
