@@ -29,6 +29,7 @@ directories/dch_directory={
 "Player": "res://Timeline/Player.dch"
 }
 directories/dtl_directory={
+"Chapter2_1_PlayerAwake1": "res://Timeline/Chapter2_1_PlayerAwake1.dtl",
 "Character1_1_FindGrandFather": "res://Timeline/Character1_1_FindGrandFather.dtl",
 "Character1_2_TalkWithGrandFather": "res://Timeline/Character1_2_TalkWithGrandFather.dtl"
 }
