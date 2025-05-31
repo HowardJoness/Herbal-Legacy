@@ -120,21 +120,21 @@ func _on_can_read_book_area_body_exited(body: Node2D) -> void:
 		GameManager.tips = ""
 
 
-func _Bamai(TimelineName: String, Correct_Result: String) -> void:
+func _Bamai(TimelineName: String, Correct_Result: String, NPCID:String = "NPC1", NPCSpeed:int = 30) -> void:
 	$NPC.visible = true
 	$OpenDoor.play()
-	$NPC.play("NPC1_idle")
+	$NPC.play("%s_idle" % NPCID)
 	await get_tree().create_timer(1).timeout
-	$NPC.play("NPC1_run_down")
+	$NPC.play("%s_run_down" % NPCID)
 	var npc_target = Vector2(207, 183) # 目标坐标
-	var speed = 30.0
+	var speed = NPCSpeed
 	$Step.play()
 	while $NPC.global_position.distance_to(npc_target) > 1:
 		var direction = (npc_target - $NPC.global_position).normalized()
 		$NPC.global_position += direction * speed * get_process_delta_time()
 		await get_tree().process_frame
 	$Step.stop()
-	$NPC.play("NPC1_idle")
+	$NPC.play("%s_idle" % NPCID)
 	Dialogic.start(TimelineName)
 	print(Dialogic.current_timeline)
 	while Dialogic.current_timeline == null:
@@ -145,7 +145,7 @@ func _Bamai(TimelineName: String, Correct_Result: String) -> void:
 		$NPC/Control.脉搏 = Dialogic.VAR["脉搏"]
 		await get_tree().create_timer(0.1).timeout
 	await get_tree().create_timer(1).timeout
-	$NPC.play("NPC1_run_up")
+	$NPC.play("%s_run_up" % NPCID)
 	print(Dialogic.current_timeline)
 	npc_target = Vector2(207, 91) # 目标坐标
 	$Step.play()
@@ -178,4 +178,5 @@ func _on_player_sit_on_chair(body: Node2D) -> void:
 			$CanvasLayer/Control.modulate.a = 0.0 + i * 0.02
 			await get_tree().create_timer(0.004).timeout
 		await get_tree().create_timer(2.35).timeout
-		_Bamai("Chapter2_1_BaMai1", "气血两虚")
+		_Bamai("Chapter2_1_BaMai1", "气血两虚", "NPC1")
+		
