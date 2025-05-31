@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://dvqufn63yw7m8"]
+[gd_scene load_steps=68 format=4 uid="uid://dvqufn63yw7m8"]
 
 [ext_resource type="Script" uid="uid://dbxm6n6gmuwcg" path="res://scripts/chapter_2_1.gd" id="1_utpsi"]
 [ext_resource type="Texture2D" uid="uid://dblc8otpklugr" path="res://imgs/Top-Down_Retro_Interior/TopDownHouse_FloorsAndWalls.png" id="2_ls14b"]
@@ -11,7 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://b6pyofqfgldif" path="res://imgs/idle_right_down.png" id="8_2abl7"]
 [ext_resource type="Texture2D" uid="uid://7h3efglmgmaw" path="res://imgs/walk_right_down.png" id="9_ulb6x"]
 [ext_resource type="AudioStream" uid="uid://bryqjn0egjopk" path="res://audio/walking_on_the_wood.mp3" id="10_ulb6x"]
+[ext_resource type="Texture2D" uid="uid://ceijirr0dn5dx" path="res://imgs/oldbook/paperopen.png" id="12_h8l63"]
 [ext_resource type="PackedScene" uid="uid://r4mbrlc3858h" path="res://scene/TaskShow.tscn" id="12_kq3ms"]
+[ext_resource type="AudioStream" uid="uid://xdfn83udos7y" path="res://audio/flipbook.mp3" id="12_v3jcm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kq3ms"]
 texture = ExtResource("2_ls14b")
@@ -2733,13 +2735,21 @@ tile_set = SubResource("TileSet_qxhfd")
 [node name="Step" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_ulb6x")
 
+[node name="Flipbook" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_v3jcm")
+
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 offset_right = 3849.0
 offset_bottom = 1926.0
 color = Color(0, 0, 0, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Paperopen" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(585, 336)
+scale = Vector2(0.202297, 0.202297)
+texture = ExtResource("12_h8l63")
 
 [node name="TaskShow" parent="CanvasLayer" instance=ExtResource("12_kq3ms")]
 

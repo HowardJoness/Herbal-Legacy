@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://vsvc6wy7tl7w"]
+[gd_scene load_steps=3 format=3 uid="uid://vsvc6wy7tl7w"]
 
 [ext_resource type="FontFile" uid="uid://coe0e2m4b4h1h" path="res://fonts/fusion-pixel-12px-monospaced-zh_hans.ttf" id="1_me1g8"]
+[ext_resource type="Script" uid="uid://bsho5bbjpw7e2" path="res://scripts/chapter_2_0.gd" id="1_sh247"]
 
 [node name="Chapter2_0" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_sh247")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

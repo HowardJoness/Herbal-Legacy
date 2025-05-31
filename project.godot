@@ -13,6 +13,7 @@ config_version=5
 config/name="Herbal Legacy"
 run/main_scene="res://scene/Begin.tscn"
 config/features=PackedStringArray("4.4", "Mobile")
+boot_splash/image="uid://bseh2ir5um65p"
 config/icon="res://icon.svg"
 
 [autoload]
