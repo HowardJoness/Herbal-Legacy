@@ -43,6 +43,8 @@ var is_in_UI:bool = false
 func _success() -> void:
 	if not(is_in_UI):
 		is_in_UI = true
+		if GameManager.Reputation < 10:
+			GameManager.Reputation += 1
 		$Label.text = "成功的诊断"
 		$Label2.text = "声望 +1"
 		$Label.add_theme_color_override("font_color", Color(0, 1, 0))  # RGB 绿色
@@ -59,8 +61,10 @@ func _success() -> void:
 			await get_tree().create_timer(0.01).timeout
 		$Button.grab_focus()
 
-func _falled() -> void:
+func _failed() -> void:
 	if not(is_in_UI):
+		if GameManager.Reputation > 0:
+			GameManager.Reputation -= 2
 		is_in_UI = true
 		$Label.text = "失败的诊断"
 		$Label2.text = "声望 -2"
@@ -80,8 +84,7 @@ func _falled() -> void:
 
 func _ready() -> void:
 	$AnimatedSprite2D.modulate.a = 0
-	await get_tree().create_timer(1).timeout
-	_falled()
+	
 	
 	
 

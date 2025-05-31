@@ -159,6 +159,7 @@ grow_vertical = 2
 script = ExtResource("1_lw8ef")
 
 [node name="59a83d2Ec20Bced3d8185Be0Ae3a212" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(586, 301)
 scale = Vector2(1.92525, 1.83889)
 texture = ExtResource("2_oqkvs")
@@ -171,6 +172,7 @@ offset_bottom = 656.0
 texture = ExtResource("4_fembc")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -182,11 +184,9 @@ offset_bottom = 70.0
 grow_horizontal = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_lw8ef")
 theme_override_styles/fill = SubResource("StyleBoxFlat_labf1")
-min_value = 0.1
 max_value = 10.0
 step = 1.0
 value = 10.0
-exp_edit = true
 show_percentage = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -245,6 +245,7 @@ theme_override_font_sizes/font_size = 16
 text = "好的我知道了"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(576, 288)
 scale = Vector2(0.475083, 0.475083)
 sprite_frames = SubResource("SpriteFrames_204kq")
