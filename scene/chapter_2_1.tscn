@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=4 uid="uid://dvqufn63yw7m8"]
+[gd_scene load_steps=93 format=4 uid="uid://dvqufn63yw7m8"]
 
 [ext_resource type="Script" uid="uid://dbxm6n6gmuwcg" path="res://scripts/chapter_2_1.gd" id="1_utpsi"]
 [ext_resource type="Texture2D" uid="uid://dblc8otpklugr" path="res://imgs/Top-Down_Retro_Interior/TopDownHouse_FloorsAndWalls.png" id="2_ls14b"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cy2uv0ybmwgqq" path="res://scene/SWZ.tscn" id="15_vomsd"]
 [ext_resource type="AudioStream" uid="uid://c1cyhklf8fhc" path="res://audio/OpenDoor.mp3" id="17_d1sna"]
 [ext_resource type="Texture2D" uid="uid://n2q26pa16t6i" path="res://imgs/prototype_character_red.png" id="18_dt0xw"]
+[ext_resource type="PackedScene" uid="uid://cg2anpvuaepjh" path="res://scene/BodyInfoPanel.tscn" id="19_d1sna"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kq3ms"]
 texture = ExtResource("2_ls14b")
@@ -2925,11 +2926,19 @@ position = Vector2(153, 254)
 shape = SubResource("WorldBoundaryShape2D_ji0h6")
 
 [node name="NPC" type="AnimatedSprite2D" parent="."]
-position = Vector2(207, 90)
+position = Vector2(207, 91)
 sprite_frames = SubResource("SpriteFrames_1586v")
 animation = &"NPC1_idle"
 autoplay = "NPC1_idle"
 frame_progress = 0.471142
+
+[node name="Control" parent="NPC" instance=ExtResource("19_d1sna")]
+offset_left = 8.0
+offset_top = -10.0
+offset_right = 134.0
+offset_bottom = 82.0
+scale = Vector2(0.120009, 0.0965313)
+"面相" = "良好"
 
 [connection signal="body_entered" from="CanReadBookArea" to="." method="_on_can_read_book_area_body_entered"]
 [connection signal="body_exited" from="CanReadBookArea" to="." method="_on_can_read_book_area_body_exited"]

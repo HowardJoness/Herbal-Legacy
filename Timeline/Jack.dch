@@ -1,0 +1,19 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "",
+&"color": Color(1, 0.984375, 0, 1),
+&"custom_info": {
+"sound_mood_default": "",
+"sound_moods": {},
+"style": ""
+},
+&"default_portrait": "",
+&"description": "哥淑女是育华村出了名的名人。",
+&"display_name": "哥淑女",
+&"mirror": false,
+&"nicknames": ["哥淑女"],
+&"offset": Vector2(0, 0),
+&"portraits": {},
+&"scale": 1.0
+}
