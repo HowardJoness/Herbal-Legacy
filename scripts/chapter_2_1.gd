@@ -41,22 +41,23 @@ func _physics_process(delta: float) -> void:
 		_handle_movement()
 
 func _handle_movement():
-	var direction := Input.get_vector("left", "right", "up", "down")
+	if player_can_move == true:
+		var direction := Input.get_vector("left", "right", "up", "down")
 
-	player.velocity = direction * (150 if Input.is_action_pressed("fast") else 50)
-	player.move_and_slide()
+		player.velocity = direction * (150 if Input.is_action_pressed("fast") else 50)
+		player.move_and_slide()
 
-	# 动画播放与脚步声
-	if direction != Vector2.ZERO:
-		sprite.play("run")
-		if not step_sound.playing:
-			step_sound.play()
-	else:
-		sprite.play("idle")
-		step_sound.stop()
+		# 动画播放与脚步声
+		if direction != Vector2.ZERO:
+			sprite.play("run")
+			if not step_sound.playing:
+				step_sound.play()
+		else:
+			sprite.play("idle")
+			step_sound.stop()
 
-	# 左右翻转
-	sprite.flip_h = player.velocity.x < 0
+		# 左右翻转
+		sprite.flip_h = player.velocity.x < 0
 
 func _input(event):
 	if (event is InputEventKey or event is InputEventMouseButton) and event.pressed:
@@ -97,7 +98,7 @@ func _on_can_read_book_area_body_entered(body: Node2D) -> void:
 		GameManager.tips = "按 E 键查看信纸"
 
 func _process(_delta):
-	if player_can_move and not player_reading and Input.is_key_pressed(KEY_E):
+	if player_can_move and not player_reading and Input.is_key_pressed(KEY_E) and not player_read:
 		for body in $CanReadBookArea.get_overlapping_bodies():# 避免在任何地方都能E
 			if body.is_in_group("player"):  
 				_show_letter()
@@ -117,3 +118,56 @@ func _show_letter():
 func _on_can_read_book_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		GameManager.tips = ""
+
+
+func _on_player_sit_on_chair(body: Node2D) -> void:
+	if body.is_in_group("player") and player_read:
+		# 玩家准备好营业了
+		$Step.stop()
+		GameManager.task = ""
+		GameManager.tips = ""
+		player_can_move = false
+		sprite.play("idle_up")
+		player.position = Vector2(113,155)
+		for i in range(50):
+			$CanvasLayer/Control.modulate.a = 0.0 + i * 0.02
+			await get_tree().create_timer(0.004).timeout
+		await get_tree().create_timer(2.35).timeout
+		$NPC.visible = true
+		$OpenDoor.play()
+		$NPC.play("NPC1_idle")
+		await get_tree().create_timer(1).timeout
+		$NPC.play("NPC1_run_down")
+		var npc_target = Vector2(207, 183) # 目标坐标
+		var speed = 30.0
+		$Step.play()
+		while $NPC.global_position.distance_to(npc_target) > 1:
+			var direction = (npc_target - $NPC.global_position).normalized()
+			$NPC.global_position += direction * speed * get_process_delta_time()
+			await get_tree().process_frame
+		$Step.stop()
+		$NPC.play("NPC1_idle")
+		Dialogic.start("Chapter2_1_BaMai1")
+		print(Dialogic.current_timeline)
+		while Dialogic.current_timeline == null:
+			await get_tree().create_timer(0.1).timeout
+		while Dialogic.current_timeline != null:
+			$NPC/Control.面相 = Dialogic.VAR["面相"]
+			$NPC/Control.症状 = Dialogic.VAR["症状"]
+			$NPC/Control.脉搏 = Dialogic.VAR["脉搏"]
+			await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(1).timeout
+		$NPC.play("NPC1_run_up")
+		print(Dialogic.current_timeline)
+		npc_target = Vector2(207, 91) # 目标坐标
+		$Step.play()
+		while $NPC.global_position.distance_to(npc_target) > 1:
+			var direction = (npc_target - $NPC.global_position).normalized()
+			$NPC.global_position += direction * speed * get_process_delta_time()
+			await get_tree().process_frame
+		$Step.stop()
+		$OpenDoor.play()
+		$NPC.visible =false
+		await get_tree().create_timer(3).timeout
+		player_can_move = true
+		player.position = Vector2(88,163)
