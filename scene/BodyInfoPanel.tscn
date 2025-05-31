@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg2anpvuaepjh"]
+
+[ext_resource type="Script" uid="uid://cmcxebxqqfm3p" path="res://scripts/body_info_panel.gd" id="1_66r5t"]
+[ext_resource type="Texture2D" uid="uid://cinucw7u2dmtj" path="res://imgs/GUI.png" id="1_hj7kn"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("showLabel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_66r5t")
+showLabel = NodePath("PanelContainer/Label")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 158.0
+offset_bottom = 91.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PanelContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 9.0
+texture = ExtResource("1_hj7kn")
+region_rect = Rect2(49, 97, 30, 30)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/line_spacing = -5
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 32
+text = " 面相：... 
+ 症状：... 
+ 脉搏：... "

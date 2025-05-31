@@ -1,0 +1,19 @@
+
+[gd_resource type="Theme" load_steps=2 format=3]
+
+[resource]
+resource_name = "PaddedLabelTheme"
+resource_type = "Theme"
+
+[resource/Constants]
+Label/content_margin_left = 10
+Label/content_margin_right = 10
+Label/content_margin_top = 6
+Label/content_margin_bottom = 8
+Label/line_spacing = -5
+Label/outline_size = 3
+
+[resource/Colors]
+Label/font_color = Color(1, 1, 1)
+Label/font_outline_color = Color(0, 0, 0)
+

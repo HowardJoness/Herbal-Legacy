@@ -78,6 +78,8 @@ func _hide_letter():
 	paper.visible = false
 	black_overlay.modulate.a = 0.0
 	player_can_move = true
+	await get_tree().create_timer(1)
+	GameManager.task = "坐到椅子上并开始你的工作"
 	
 
 func _on_event_triggered(event_name):
