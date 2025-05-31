@@ -9,8 +9,8 @@ var task: String = "" # 任务名称
 var tips: String = "" # 提示名称
 var scenedebug: String = "..." # 场景调试信息
 var developer_mode = true # 开发者模式
-var Reputation_Enable:bool = false # 启用声望值
-var Reputation_show:bool = false # 已显示声望值用法
+var Reputation_Enable:bool = true # 启用声望值
+var Reputation_show:bool = true # 已显示声望值用法
 var Reputation: int = 10 # 声望值
 
 # 特殊全局变量

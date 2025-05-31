@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://dvqufn63yw7m8"]
+[gd_scene load_steps=74 format=4 uid="uid://dvqufn63yw7m8"]
 
 [ext_resource type="Script" uid="uid://dbxm6n6gmuwcg" path="res://scripts/chapter_2_1.gd" id="1_utpsi"]
 [ext_resource type="Texture2D" uid="uid://dblc8otpklugr" path="res://imgs/Top-Down_Retro_Interior/TopDownHouse_FloorsAndWalls.png" id="2_ls14b"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://ceijirr0dn5dx" path="res://imgs/oldbook/paperopen.png" id="12_h8l63"]
 [ext_resource type="PackedScene" uid="uid://r4mbrlc3858h" path="res://scene/TaskShow.tscn" id="12_kq3ms"]
 [ext_resource type="AudioStream" uid="uid://xdfn83udos7y" path="res://audio/flipbook.mp3" id="12_v3jcm"]
+[ext_resource type="PackedScene" uid="uid://cy2uv0ybmwgqq" path="res://scene/SWZ.tscn" id="15_vomsd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kq3ms"]
 texture = ExtResource("2_ls14b")
@@ -2603,6 +2604,20 @@ sources/2 = SubResource("TileSetAtlasSource_qdne2")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lfv5p"]
 size = Vector2(48.5, 47)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxhfd"]
+size = Vector2(16, 23)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6yj2q"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_j3qg8"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s7kae"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ji0h6"]
+
 [node name="Chapter2_1" type="Node2D"]
 script = ExtResource("1_utpsi")
 metadata/_edit_vertical_guides_ = [288.0]
@@ -2739,6 +2754,7 @@ stream = ExtResource("10_ulb6x")
 stream = ExtResource("12_v3jcm")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_right = 3849.0
 offset_bottom = 1926.0
 color = Color(0, 0, 0, 1)
@@ -2753,11 +2769,38 @@ texture = ExtResource("12_h8l63")
 
 [node name="TaskShow" parent="CanvasLayer" instance=ExtResource("12_kq3ms")]
 
+[node name="Control" parent="CanvasLayer" instance=ExtResource("15_vomsd")]
+
 [node name="CanReadBookArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanReadBookArea"]
 position = Vector2(209.75, 204.5)
 shape = SubResource("RectangleShape2D_lfv5p")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(216, 228.5)
+shape = SubResource("RectangleShape2D_qxhfd")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(150, 17)
+shape = SubResource("WorldBoundaryShape2D_6yj2q")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1, 110)
+shape = SubResource("WorldBoundaryShape2D_j3qg8")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(285, 137)
+shape = SubResource("WorldBoundaryShape2D_s7kae")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(153, 254)
+shape = SubResource("WorldBoundaryShape2D_ji0h6")
 
 [connection signal="body_entered" from="CanReadBookArea" to="." method="_on_can_read_book_area_body_entered"]
 [connection signal="body_exited" from="CanReadBookArea" to="." method="_on_can_read_book_area_body_exited"]
