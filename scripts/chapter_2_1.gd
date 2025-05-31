@@ -171,3 +171,4 @@ func _on_player_sit_on_chair(body: Node2D) -> void:
 		await get_tree().create_timer(3).timeout
 		player_can_move = true
 		player.position = Vector2(88,163)
+		

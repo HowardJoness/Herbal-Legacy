@@ -2923,7 +2923,6 @@ texture = ExtResource("12_h8l63")
 [node name="TaskShow" parent="CanvasLayer" instance=ExtResource("12_kq3ms")]
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource("15_vomsd")]
-modulate = Color(1, 1, 1, 0)
 
 [node name="CanReadBookArea" type="Area2D" parent="."]
 

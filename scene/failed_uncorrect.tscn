@@ -62,6 +62,6 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("1_gpqpy")
 theme_override_font_sizes/font_size = 16
-text = "返回首页 >"
+text = "返回主界面 >"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
