@@ -111,7 +111,7 @@ func _show_letter():
 	GameManager.task = ""
 	GameManager.tips = ""
 	$CanReadBookArea.queue_free()
-	$House/Paper.queue_free()
+	$Paper.queue_free()
 	player_can_move = false
 	black_overlay.modulate.a = 0.75
 	paper.visible = true

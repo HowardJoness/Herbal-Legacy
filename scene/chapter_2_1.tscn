@@ -4653,12 +4653,8 @@ shape = SubResource("RectangleShape2D_yc2al")
 position = Vector2(216, 234.25)
 shape = SubResource("RectangleShape2D_gtpik")
 
-[node name="Paper" type="Sprite2D" parent="House"]
-position = Vector2(205, 201)
-scale = Vector2(0.0308812, 0.0295359)
-texture = ExtResource("7_qdne2")
-
 [node name="NPC" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(207, 97)
 sprite_frames = SubResource("SpriteFrames_1586v")
 animation = &"NPC2_idle"
@@ -4666,15 +4662,21 @@ autoplay = "NPC1_idle"
 frame_progress = 0.715925
 
 [node name="Control" parent="NPC" instance=ExtResource("19_d1sna")]
-offset_left = 10.0
+offset_left = 9.0
 offset_top = -27.0
-offset_right = 136.0
+offset_right = 268.0
 offset_bottom = 65.0
 scale = Vector2(0.185708, 0.169825)
 
 [node name="Desk" type="TileMapLayer" parent="."]
+visible = false
 tile_map_data = PackedByteArray("AAAMAAwAAQAAAAIAAAAMAA0AAQAAAAMAAAANAAwAAQABAAIAAAANAA0AAQABAAMAAAAOAAwAAQACAAIAAAAOAA0AAQACAAMAAAA=")
 tile_set = SubResource("TileSet_ji0h6")
+
+[node name="Paper" type="Sprite2D" parent="."]
+position = Vector2(205, 201)
+scale = Vector2(0.0308812, 0.0295359)
+texture = ExtResource("7_qdne2")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(104, 24)
