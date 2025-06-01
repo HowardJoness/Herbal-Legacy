@@ -130,6 +130,7 @@ func _Bamai(TimelineName: String, Correct_Result: String, NPCID:String = "NPC1",
 	$NPC/Control.面相 = "..."
 	$NPC/Control.症状 = "..."
 	$NPC/Control.脉搏 = "..."
+	$NPC/Control.visible = true
 	$NPC.visible = true
 	$OpenDoor.play()
 	$NPC.play("%s_idle" % NPCID)
@@ -211,12 +212,32 @@ func _on_player_sit_on_chair(body: Node2D) -> void:
 			await get_tree().create_timer(0.1).timeout
 		await get_tree().create_timer(3.12).timeout
 		_Bamai("Chapter2_1_BaMai3", "阴虚内热", "NPC1")
-		
 		while Dialogic.current_timeline != null:
 			await get_tree().create_timer(0.1).timeout
 		while $CanvasLayer/Control.is_in_UI ==false:
 			await get_tree().create_timer(0.1).timeout
 		while $CanvasLayer/Control.is_in_UI ==true:
 			await get_tree().create_timer(0.1).timeout
-		await get_tree().create_timer(3.12).timeout
-		
+		await get_tree().create_timer(5).timeout
+
+	# 开始煎药流程
+	$NPC/Control.visible = false
+	$OpenDoor.play()
+	$NPC.play("NPC2_idle")
+	await get_tree().create_timer(1).timeout
+	$NPC.play("NPC2_run_down")
+	var npc_target = Vector2(207, 183) # 目标坐标
+	var speed = 30.0
+	$Step.play()
+	while $NPC.global_position.distance_to(npc_target) > 1:
+		var direction = (npc_target - $NPC.global_position).normalized()
+		$NPC.global_position += direction * speed * get_process_delta_time()
+		await get_tree().process_frame
+	$Step.stop()
+	$NPC.play("NPC2_idle")
+	Dialogic.start("Chapter2_1_JianYao1")
+	await Dialogic.timeline_ended
+	await get_tree().create_timer(1).timeout
+	GameManager.task = "走到药炉旁"
+	
+	

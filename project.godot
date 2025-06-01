@@ -29,6 +29,7 @@ directories/dch_directory={
 "GrandFather": "res://Timeline/GrandFather.dch",
 "Jack": "res://Timeline/Jack.dch",
 "Mike": "res://Timeline/Mike.dch",
+"MrGao": "res://Timeline/MrGao.dch",
 "Player": "res://Timeline/Player.dch",
 "Skai": "res://Timeline/Skai.dch"
 }
@@ -36,6 +37,7 @@ directories/dtl_directory={
 "Chapter2_1_BaMai1": "res://Timeline/Chapter2_1_BaMai1.dtl",
 "Chapter2_1_BaMai2": "res://Timeline/Chapter2_1_BaMai2.dtl",
 "Chapter2_1_BaMai3": "res://Timeline/Chapter2_1_BaMai3.dtl",
+"Chapter2_1_JianYao1": "res://Timeline/Chapter2_1_JianYao1.dtl",
 "Chapter2_1_PlayerAwake1": "res://Timeline/Chapter2_1_PlayerAwake1.dtl",
 "Character1_1_FindGrandFather": "res://Timeline/Character1_1_FindGrandFather.dtl",
 "Character1_2_TalkWithGrandFather": "res://Timeline/Character1_2_TalkWithGrandFather.dtl"

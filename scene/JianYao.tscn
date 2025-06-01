@@ -1,0 +1,810 @@
+[gd_scene load_steps=30 format=3 uid="uid://7nuo2s3t6q8g"]
+
+[ext_resource type="Texture2D" uid="uid://by68kjiflp8pb" path="res://scene/59a83d2ec20bced3d8185be0ae3a212.png" id="1_efoha"]
+[ext_resource type="Script" uid="uid://chhggdu3iqfd2" path="res://scripts/jian_yao.gd" id="1_sht6q"]
+[ext_resource type="Shader" uid="uid://cuuvsf7llgb6g" path="res://Shaders/Blur.gdshader" id="2_jokbn"]
+[ext_resource type="Texture2D" uid="uid://cggmhpvh5ffqt" path="res://icon.svg" id="3_sht6q"]
+[ext_resource type="Texture2D" uid="uid://dq7q4d57j1oxh" path="res://imgs/YAOLU/YAOLU_logo.png" id="4_1yp2w"]
+[ext_resource type="FontFile" uid="uid://coe0e2m4b4h1h" path="res://fonts/fusion-pixel-12px-monospaced-zh_hans.ttf" id="6_2lv7e"]
+[ext_resource type="Texture2D" uid="uid://dw8wgxa1lvlsm" path="res://imgs/YAOLU/YAOLU_button1.png" id="7_yxqox"]
+[ext_resource type="Texture2D" uid="uid://xpdv6rp0ujfb" path="res://imgs/YAOLU/YAOLU_button2.png" id="8_jokbn"]
+[ext_resource type="Texture2D" uid="uid://8bdu5klhub8l" path="res://imgs/YAOLU/buttons/YAOLU_button1_pressed.png" id="9_yxqox"]
+[ext_resource type="Texture2D" uid="uid://b8kek3sxjlwjr" path="res://imgs/YAOLU/buttons/YAOLU_button1_handon.png" id="10_ynolt"]
+[ext_resource type="Texture2D" uid="uid://daw55kxe22sul" path="res://imgs/YAOLU/buttons/YAOLU_button2_pressed.png" id="12_bq5ls"]
+[ext_resource type="Texture2D" uid="uid://d13fjc7cec5pj" path="res://imgs/YAOLU/buttons/YAOLU_button2_handon.png" id="13_isf3k"]
+[ext_resource type="Texture2D" uid="uid://c1egbsi5g60ay" path="res://imgs/YAOLU/ChatGPT Image 2025年6月1日 17_18_43.png" id="14_6f0gi"]
+[ext_resource type="Texture2D" uid="uid://da2l5qdjrcq2o" path="res://imgs/YAOLU/ChatGPT Image 2025年6月1日 17_18_45.png" id="15_ut1tu"]
+[ext_resource type="Texture2D" uid="uid://cmy5hudbq7s4v" path="res://imgs/YAOLU/ChatGPT Image 2025年6月1日 17_21_47.png" id="16_2bldr"]
+[ext_resource type="Texture2D" uid="uid://bs6mf55lgidg1" path="res://imgs/YAOLU/YAOLU_guo1.png" id="17_vh88x"]
+[ext_resource type="Texture2D" uid="uid://cj4b207fdeanp" path="res://imgs/YAOLU/YAOLU_guo2.png" id="18_rgd8x"]
+[ext_resource type="Texture2D" uid="uid://dh0dw6aq1iqym" path="res://imgs/YAOLU/YAOLU_sliderbackground1.png" id="19_d7f4n"]
+[ext_resource type="Texture2D" uid="uid://dfsasbdlyoxyr" path="res://imgs/YAOLU/YAOLU_sliderbutton1.png" id="20_qcipm"]
+[ext_resource type="Texture2D" uid="uid://c3sei7o6mo72u" path="res://imgs/YAOLU/YAOLU_bag.png" id="20_s8pph"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ynolt"]
+shader = ExtResource("2_jokbn")
+shader_parameter/lod = 2.5
+
+[sub_resource type="Animation" id="Animation_wmt2j"]
+resource_name = "Step1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.5),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Vector2(573.845, 172), Vector2(475, 172)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.533333),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.333333, 0.8),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.366667, 0.793056),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Vector2(167.035, -1), Vector2(0, -1)]
+}
+
+[sub_resource type="Animation" id="Animation_ujfg8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(573.845, 172)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.307),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FireSlider:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(82.395, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("FireSlider:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("GUO:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(98.79, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("GUO:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Label:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Step:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Label:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(522, 321)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("YaoluBag:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("YaoluBag:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(585, 343)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Label2:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(653, 276)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Label2:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Label3:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Button:modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yxqox"]
+resource_name = "Step1_done"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.566667),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Vector2(475, 172), Vector2(324.085, 172)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.566667),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.133333, 0.566667),
+"transitions": PackedFloat32Array(0.307, 0.307),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.126389, 0.566667),
+"transitions": PackedFloat32Array(0.307, 0.307),
+"update": 0,
+"values": [Vector2(0, -1), Vector2(-148.78, -1)]
+}
+
+[sub_resource type="Animation" id="Animation_aiekj"]
+resource_name = "Step2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FireSlider:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.366667, 0.8),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Vector2(82.395, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FireSlider:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.366667, 0.833333),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GUO:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.366667, 0.8),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Vector2(98.79, 0), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GUO:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.366667, 0.833333),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Title:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0333333, 0.433333),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Title:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0333333, 0.466667),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Vector2(573.845, 172), Vector2(474.735, 172)]
+}
+
+[sub_resource type="Animation" id="Animation_6f0gi"]
+resource_name = "Finish"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FireSlider:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.366667),
+"transitions": PackedFloat32Array(0.307, 0.307),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FireSlider:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.133333, 0.4),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GUO:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.4),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GUO:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.133333, 0.4),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Title:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.133333, 0.433333),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Title:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.133333, 0.4),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Vector2(474.735, 172), Vector2(474.737, 172)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Label:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.933333, 1.46667),
+"transitions": PackedFloat32Array(3.078, 3.078),
+"update": 0,
+"values": [Vector2(522, 321), Vector2(441.565, 321)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Label:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.166667, 0.433333, 1.36667, 1.4),
+"transitions": PackedFloat32Array(0.307, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("YaoluBag:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1.33333, 1.96667),
+"transitions": PackedFloat32Array(0.307, 0.307),
+"update": 0,
+"values": [Vector2(585, 343), Vector2(349.615, 343)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("YaoluBag:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1.36667, 1.4),
+"transitions": PackedFloat32Array(0.307, 0.307),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Step:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.166667, 0.433333),
+"transitions": PackedFloat32Array(0.307, 0.307),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Label2:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(1.33333, 1.96667),
+"transitions": PackedFloat32Array(0.307, 0.307),
+"update": 0,
+"values": [Vector2(416.47, 276), Vector2(653, 276)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Label2:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(1.36667, 1.4),
+"transitions": PackedFloat32Array(0.307, 0.307),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Label3:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(1.86667, 2.4),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Button:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(1.8, 2.33333),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4em7j"]
+_data = {
+&"Finish": SubResource("Animation_6f0gi"),
+&"RESET": SubResource("Animation_ujfg8"),
+&"Step1": SubResource("Animation_wmt2j"),
+&"Step1_done": SubResource("Animation_yxqox"),
+&"Step2": SubResource("Animation_aiekj")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qvpkq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_6f0gi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ut1tu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_2bldr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d0jx5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_vh88x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_rgd8x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Node2D" type="CanvasLayer"]
+script = ExtResource("1_sht6q")
+
+[node name="59a83d2Ec20Bced3d8185Be0Ae3a212" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(1.91362, 1.8)
+texture = ExtResource("1_efoha")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_ynolt")
+offset_right = 1161.0
+offset_bottom = 656.0
+texture = ExtResource("3_sht6q")
+
+[node name="YaoluLogo" type="Sprite2D" parent="."]
+position = Vector2(120.5, 62)
+scale = Vector2(0.601974, 0.6)
+texture = ExtResource("4_1yp2w")
+
+[node name="Control" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_top = -1.0
+offset_right = 40.0
+offset_bottom = 39.0
+
+[node name="Shaguo" type="TextureButton" parent="Control"]
+offset_left = 186.0
+offset_top = 259.0
+offset_right = 722.0
+offset_bottom = 625.0
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("7_yxqox")
+texture_pressed = ExtResource("9_yxqox")
+texture_hover = ExtResource("10_ynolt")
+
+[node name="Buxiugangguo" type="TextureButton" parent="Control"]
+offset_left = 645.3
+offset_top = 259.0
+offset_right = 1181.3
+offset_bottom = 625.0
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("8_jokbn")
+texture_pressed = ExtResource("12_bq5ls")
+texture_hover = ExtResource("13_isf3k")
+
+[node name="Title" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 573.845
+offset_top = 172.0
+offset_right = 776.845
+offset_bottom = 202.0
+theme_override_fonts/font = ExtResource("6_2lv7e")
+theme_override_font_sizes/font_size = 29
+text = "准备开火"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Step" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 475.0
+offset_top = 610.0
+offset_right = 678.0
+offset_bottom = 640.0
+theme_override_fonts/font = ExtResource("6_2lv7e")
+theme_override_font_sizes/font_size = 22
+text = "步骤 1 / 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4em7j")
+}
+
+[node name="GUO" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(98.79, 0)
+
+[node name="Fire" type="AnimatedSprite2D" parent="GUO"]
+position = Vector2(578, 431)
+scale = Vector2(0.136616, 0.136616)
+sprite_frames = SubResource("SpriteFrames_qvpkq")
+frame_progress = 0.14452
+
+[node name="YAOGUO" type="AnimatedSprite2D" parent="GUO"]
+position = Vector2(576, 355)
+scale = Vector2(0.629223, 0.629223)
+sprite_frames = SubResource("SpriteFrames_d0jx5")
+frame_progress = 0.391831
+
+[node name="FireSlider" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 82.395
+offset_right = 122.395
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="FireSlider"]
+layout_mode = 0
+offset_left = 319.0
+offset_top = 502.0
+offset_right = 1494.0
+offset_bottom = 643.0
+scale = Vector2(0.441918, 0.441918)
+texture = ExtResource("19_d7f4n")
+
+[node name="TextureButton" type="TextureButton" parent="FireSlider"]
+layout_mode = 0
+offset_left = 309.0
+offset_top = 491.0
+offset_right = 447.0
+offset_bottom = 629.0
+scale = Vector2(0.639515, 0.639515)
+texture_normal = ExtResource("20_qcipm")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 522.0
+offset_top = 321.0
+offset_right = 650.0
+offset_bottom = 366.0
+theme_override_fonts/font = ExtResource("6_2lv7e")
+theme_override_font_sizes/font_size = 32
+text = "任务完成"
+
+[node name="Label2" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 653.0
+offset_top = 276.0
+offset_right = 913.0
+offset_bottom = 417.0
+theme_override_fonts/font = ExtResource("6_2lv7e")
+theme_override_font_sizes/font_size = 40
+text = "总误差：2.114
+加权得分：22
+评级：A"
+
+[node name="YaoluBag" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(585, 343)
+scale = Vector2(0.755814, 0.755814)
+texture = ExtResource("20_s8pph")
+
+[node name="Label3" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 423.0
+offset_top = 446.0
+offset_right = 743.0
+offset_bottom = 469.0
+theme_override_fonts/font = ExtResource("6_2lv7e")
+theme_override_font_sizes/font_size = 16
+text = "你们这个是什么药，你们这个真是害人不浅啊"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 523.0
+offset_top = 599.0
+offset_right = 634.0
+offset_bottom = 637.0
+theme_override_fonts/font = ExtResource("6_2lv7e")
+theme_override_font_sizes/font_size = 16
+text = "继续 >"
+
+[connection signal="pressed" from="Control/Shaguo" to="." method="_on_shaguo_pressed"]
+[connection signal="pressed" from="Control/Buxiugangguo" to="." method="_on_buxiugangguo_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
