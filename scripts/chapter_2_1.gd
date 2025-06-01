@@ -13,7 +13,7 @@ var player_reading := false
 @onready var black_overlay := $ColorRect
 
 var book_scene: PackedScene = preload("uid://dsal210ib2gbj")
-var book_instance: Node = null
+var book_instance: bool = false
 
 func _ready():
 	black_overlay.visible = true
@@ -65,14 +65,13 @@ func _input(event):
 			_hide_letter()
 	if event is InputEventKey and event.pressed and event.keycode == KEY_B:
 		if player_read:
-			if book_instance == null:
-				_show_book()
-
-func _show_book():
-	book_instance = book_scene.instantiate()
-	get_tree().root.add_child(book_instance)  # 添加到场景树最顶层
-
-
+			if book_instance == false:
+				book_instance = true
+				
+			else:
+				book_instance = false
+			$CanvasLayer/OldBook.visible = book_instance
+			$CanvasLayer/TaskShow.visible = not(book_instance)
 func _hide_letter():
 	player_reading = false
 	player_read = true
@@ -90,9 +89,13 @@ func _on_event_triggered(event_name):
 
 func _fade_out_black_overlay():
 	for i in range(100):
-		black_overlay.modulate.a = 1.0 - i * 0.01
-		await get_tree().create_timer(0.03).timeout
-
+		if Dialogic.current_timeline != null:
+			black_overlay.modulate.a = 1.0 - i * 0.01
+			await get_tree().create_timer(0.03).timeout
+		else:
+			black_overlay.modulate.a = 0.0
+			break
+			
 func _on_can_read_book_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		GameManager.tips = "按 E 键查看信纸"
@@ -121,6 +124,9 @@ func _on_can_read_book_area_body_exited(body: Node2D) -> void:
 
 
 func _Bamai(TimelineName: String, Correct_Result: String, NPCID:String = "NPC1", NPCSpeed:int = 30) -> void:
+	$NPC/Control.面相 = "..."
+	$NPC/Control.症状 = "..."
+	$NPC/Control.脉搏 = "..."
 	$NPC.visible = true
 	$OpenDoor.play()
 	$NPC.play("%s_idle" % NPCID)
@@ -178,5 +184,18 @@ func _on_player_sit_on_chair(body: Node2D) -> void:
 			$CanvasLayer/Control.modulate.a = 0.0 + i * 0.02
 			await get_tree().create_timer(0.004).timeout
 		await get_tree().create_timer(2.35).timeout
+		# 启动把脉对话
 		_Bamai("Chapter2_1_BaMai1", "气血两虚", "NPC1")
+		
+		# 等待对话结束
+		while Dialogic.current_timeline != null:
+			await get_tree().create_timer(0.1).timeout
+		while $CanvasLayer/Control.is_in_UI ==false:
+			await get_tree().create_timer(0.1).timeout
+		while $CanvasLayer/Control.is_in_UI ==true:
+			await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(3.12).timeout
+		
+		
+		_Bamai("Chapter2_1_BaMai2", "脾胃虚弱", "NPC2")
 		

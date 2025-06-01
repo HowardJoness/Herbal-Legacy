@@ -28,10 +28,12 @@ DebugWindow="*res://scene/debug_window.tscn"
 directories/dch_directory={
 "GrandFather": "res://Timeline/GrandFather.dch",
 "Jack": "res://Timeline/Jack.dch",
+"Mike": "res://Timeline/Mike.dch",
 "Player": "res://Timeline/Player.dch"
 }
 directories/dtl_directory={
 "Chapter2_1_BaMai1": "res://Timeline/Chapter2_1_BaMai1.dtl",
+"Chapter2_1_BaMai2": "res://Timeline/Chapter2_1_BaMai2.dtl",
 "Chapter2_1_PlayerAwake1": "res://Timeline/Chapter2_1_PlayerAwake1.dtl",
 "Character1_1_FindGrandFather": "res://Timeline/Character1_1_FindGrandFather.dtl",
 "Character1_2_TalkWithGrandFather": "res://Timeline/Character1_2_TalkWithGrandFather.dtl"
