@@ -5,6 +5,7 @@ var PlotAlreadyPlayed: bool = false
 var FinishAnimation:bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameManager.Gaming = true
 	$CanvasLayer/White.visible = false
 	GameManager.scenedebug = "..."
 	
@@ -142,4 +143,5 @@ func _OnBookseekPlayed(anim_name: StringName) -> void:
 		$CanvasLayer/Black.modulate.a = i * 0.01
 		await get_tree().create_timer(0.0002).timeout
 	await get_tree().create_timer(1).timeout
+	GameManager.Gaming = false
 	SceneManager.change_scene("uid://vsvc6wy7tl7w")

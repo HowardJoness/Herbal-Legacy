@@ -16,16 +16,17 @@ var book_scene: PackedScene = preload("uid://dsal210ib2gbj")
 var book_instance: bool = false
 
 func _ready():
+	
 	black_overlay.visible = true
-
 	if not GameManager.isPassC2_1Timeline:
 		GameManager.scenedebug = "进入剧情"
 		print("来到场景")
 
 		player.add_to_group("player")
 		black_overlay.modulate.a = 1.0
-
+	
 		Dialogic.signal_event.connect(_on_event_triggered)
+		GameManager.Gaming = true
 		Dialogic.start("Chapter2_1_PlayerAwake1")
 		await Dialogic.timeline_ended
 

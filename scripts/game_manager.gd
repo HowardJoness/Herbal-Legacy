@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasLayer
 
 """
 你好awa
@@ -21,8 +21,56 @@ var isPassC2_1Timeline:bool = false # 是否过关 Chapter2_1 的剧情介绍
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("[GameManager] GM模块被成功加载。")
+	# 默认隐藏计时器
+	total_time_label.visible = false
+	gaming_time_label.visible = false
 
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+@onready var total_time_label: Label = $TotalTime
+@onready var gaming_time_label: Label = $GamingTime
+@onready var bgm_player: AudioStreamPlayer2D = $M500003sBjkR0ssd3r
+
+var isSpeedrunMode := true  # ← 速通模式开关
+var total_seconds := 0.0
+var gaming_seconds := 0.0
+var Gaming := true
+var game_started := false
+
+func GameBegin():
+	if not isSpeedrunMode:
+		print("[GameManager] 游戏以正常模式启动")
+		return
+
+	print("[GameManager] 游戏以速通模式启动")
+	game_started = true
+	Gaming = true
+	total_seconds = 0.0
+	gaming_seconds = 0.0
+
+	# 显示计时器
+	total_time_label.visible = true
+	gaming_time_label.visible = true
+
+	# 播放BGM
+	bgm_player.play()
+
+
+
+
 func _process(delta: float) -> void:
-	pass
+	if not game_started or not isSpeedrunMode:
+		return
+
+	total_seconds += delta
+	if Gaming:
+		gaming_seconds += delta
+	
+	total_time_label.text = format_time(total_seconds)
+	gaming_time_label.text = format_time(gaming_seconds)
+
+
+func format_time(time: float) -> String:
+	var minutes = int(time) / 60
+	var seconds = int(time) % 60
+	var milliseconds = int((time - int(time)) * 1000)
+	return "%02d:%02d.%03d" % [minutes, seconds, milliseconds]

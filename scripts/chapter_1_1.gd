@@ -5,10 +5,10 @@ extends Node2D
 func _ready() -> void:
 	GameManager.scenedebug = "..."
 	var position: String = "a"
-	
 	print("来到场景")
 	$CharacterBody2D.add_to_group("player")
 	$ColorRect.modulate.a = 1
+	GameManager.GameBegin()
 	Dialogic.start("Character1_1_FindGrandFather")
 	await Dialogic.timeline_ended
 	await get_tree().create_timer(1).timeout
@@ -54,6 +54,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		$OpenDoor.play()
 		SceneManager.fade_out()
 		$ColorRect.modulate.a = 1
-		
+		GameManager.Gaming = false
 		SceneManager.change_scene("uid://g0x1c5b5amcg")
 		

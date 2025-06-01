@@ -4669,7 +4669,6 @@ offset_bottom = 65.0
 scale = Vector2(0.185708, 0.169825)
 
 [node name="Desk" type="TileMapLayer" parent="."]
-visible = false
 tile_map_data = PackedByteArray("AAAMAAwAAQAAAAIAAAAMAA0AAQAAAAMAAAANAAwAAQABAAIAAAANAA0AAQABAAMAAAAOAAwAAQACAAIAAAAOAA0AAQACAAMAAAA=")
 tile_set = SubResource("TileSet_ji0h6")
 

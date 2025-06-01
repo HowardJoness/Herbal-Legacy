@@ -47,4 +47,12 @@ offset_right = 259.0
 offset_bottom = 195.0
 text = "开发者模式"
 
+[node name="SpeedRun" type="CheckButton" parent="."]
+layout_mode = 2
+offset_left = 131.0
+offset_top = 200.0
+offset_right = 259.0
+offset_bottom = 231.0
+text = "速通模式"
+
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

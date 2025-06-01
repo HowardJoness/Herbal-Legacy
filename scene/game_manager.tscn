@@ -1,10 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://djmel73hjdohm"]
+[gd_scene load_steps=4 format=3 uid="uid://djmel73hjdohm"]
 
 [ext_resource type="Script" uid="uid://braj2h7y6n735" path="res://scripts/game_manager.gd" id="1_fa00v"]
 [ext_resource type="AudioStream" uid="uid://dh4ftxrdl0jhw" path="res://audio/rainy.mp3" id="2_wbr6g"]
+[ext_resource type="AudioStream" uid="uid://d3cbrtmkr3rf8" path="res://audio/M500003SBjkR0SSD3r.mp3" id="3_a81tu"]
 
-[node name="GameManager" type="Node2D"]
+[node name="GameManager" type="CanvasLayer"]
 script = ExtResource("1_fa00v")
 
 [node name="RainBGM" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_wbr6g")
+
+[node name="M500003sBjkR0ssd3r" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1074, 582)
+stream = ExtResource("3_a81tu")
+parameters/looping = true
+
+[node name="TotalTime" type="Label" parent="."]
+offset_left = 985.0
+offset_top = 542.0
+offset_right = 1130.0
+offset_bottom = 587.0
+theme_override_colors/font_color = Color(1, 0, 0.633333, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "00:00.000"
+horizontal_alignment = 2
+
+[node name="GamingTime" type="Label" parent="."]
+offset_left = 985.0
+offset_top = 585.0
+offset_right = 1130.0
+offset_bottom = 630.0
+theme_override_colors/font_color = Color(0.35, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "00:00.000"
+horizontal_alignment = 2

@@ -29,6 +29,7 @@ func _on_setting_button_pressed() -> void:
 
 
 func _on_start_button_pressed() -> void:
+	
 	print("切换场景")
 	SceneManager.change_scene("uid://dx8af5gtxvonq", {
 	"pattern": "scribbles",
