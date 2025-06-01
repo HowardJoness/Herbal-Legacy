@@ -125,6 +125,8 @@ func _on_can_read_book_area_body_exited(body: Node2D) -> void:
 
 
 func _Bamai(TimelineName: String, Correct_Result: String, NPCID:String = "NPC1", NPCSpeed:int = 30) -> void:
+	# 开始【把脉】流程
+	
 	$NPC/Control.面相 = "..."
 	$NPC/Control.症状 = "..."
 	$NPC/Control.脉搏 = "..."
@@ -169,6 +171,7 @@ func _Bamai(TimelineName: String, Correct_Result: String, NPCID:String = "NPC1",
 		$CanvasLayer/Control._success()
 	else:
 		$CanvasLayer/Control._failed()
+	GameManager._loseJudge() # 进行一次失败判定
 
 
 
@@ -197,6 +200,23 @@ func _on_player_sit_on_chair(body: Node2D) -> void:
 			await get_tree().create_timer(0.1).timeout
 		await get_tree().create_timer(3.12).timeout
 		
-		
+	
 		_Bamai("Chapter2_1_BaMai2", "脾胃虚弱", "NPC2")
+		
+		while Dialogic.current_timeline != null:
+			await get_tree().create_timer(0.1).timeout
+		while $CanvasLayer/Control.is_in_UI ==false:
+			await get_tree().create_timer(0.1).timeout
+		while $CanvasLayer/Control.is_in_UI ==true:
+			await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(3.12).timeout
+		_Bamai("Chapter2_1_BaMai3", "阴虚内热", "NPC1")
+		
+		while Dialogic.current_timeline != null:
+			await get_tree().create_timer(0.1).timeout
+		while $CanvasLayer/Control.is_in_UI ==false:
+			await get_tree().create_timer(0.1).timeout
+		while $CanvasLayer/Control.is_in_UI ==true:
+			await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(3.12).timeout
 		

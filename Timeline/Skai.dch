@@ -1,0 +1,19 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "",
+&"color": Color(1, 0.632813, 0, 1),
+&"custom_info": {
+"sound_mood_default": "",
+"sound_moods": {},
+"style": ""
+},
+&"default_portrait": "",
+&"description": "SKAI是育华村里的一位有名的歌手，唱过《小展宏图》、《东方来财》等众多知名歌曲。",
+&"display_name": "SKAI",
+&"mirror": false,
+&"nicknames": ["SKAI"],
+&"offset": Vector2(0, 0),
+&"portraits": {},
+&"scale": 1.0
+}

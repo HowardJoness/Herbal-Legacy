@@ -12,7 +12,7 @@ var developer_mode = true # 开发者模式
 var Reputation_Enable:bool = true # 启用声望值
 var Reputation_show:bool = true # 已显示声望值用法
 var Reputation: int = 10 # 声望值
-
+var passedChapter:Array = [] # 已经过关的章节
 
 
 # 特殊全局变量
@@ -30,11 +30,20 @@ func _ready() -> void:
 @onready var gaming_time_label: Label = $GamingTime
 @onready var bgm_player: AudioStreamPlayer2D = $M500003sBjkR0ssd3r
 
-var isSpeedrunMode := true  # ← 速通模式开关
+var isSpeedrunMode := false  # ← 速通模式开关
 var total_seconds := 0.0
 var gaming_seconds := 0.0
 var Gaming := true
 var game_started := false
+var speedRunBGM:bool = true
+
+
+func _loseJudge():
+	# 游戏运行时进行一次失败判定
+	if Reputation <= 0:
+		# 声望值小于等于0
+		SceneManager.change_scene("uid://bge82j1r1x7ne")
+
 
 func GameBegin():
 	if not isSpeedrunMode:
@@ -52,7 +61,8 @@ func GameBegin():
 	gaming_time_label.visible = true
 
 	# 播放BGM
-	bgm_player.play()
+	if speedRunBGM:
+		bgm_player.play()
 
 
 

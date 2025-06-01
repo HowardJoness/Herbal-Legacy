@@ -55,4 +55,13 @@ offset_right = 259.0
 offset_bottom = 231.0
 text = "速通模式"
 
+[node name="SpeedRunBGM" type="CheckButton" parent="."]
+layout_mode = 2
+offset_left = 258.0
+offset_top = 201.0
+offset_right = 386.0
+offset_bottom = 232.0
+theme_override_font_sizes/font_size = 13
+text = "启用追慕大蛇同款BGM"
+
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
