@@ -12,6 +12,7 @@ var player_reading := false
 @onready var paper := $CanvasLayer/Paperopen
 @onready var black_overlay := $ColorRect
 
+var isinyaolu:bool = false
 var isGoinToJianyao: bool = false
 var book_scene: PackedScene = preload("uid://dsal210ib2gbj")
 var book_instance: bool = false
@@ -186,11 +187,11 @@ func _on_player_sit_on_chair(body: Node2D) -> void:
 		player_can_move = false
 		sprite.play("idle_up")
 		player.position = Vector2(113,155)
-		for i in range(50):
-			$CanvasLayer/Control.modulate.a = 0.0 + i * 0.02
-			await get_tree().create_timer(0.004).timeout
+		for i in range(20):
+			$CanvasLayer/Control.modulate.a = 0.0 + i * 0.05
+			await get_tree().create_timer(0.002).timeout
 		await get_tree().create_timer(2.35).timeout
-		# 启动把脉对话
+		 #启动把脉对话
 		_Bamai("Chapter2_1_BaMai1", "气血两虚", "NPC1")
 		
 		# 等待对话结束
@@ -222,6 +223,7 @@ func _on_player_sit_on_chair(body: Node2D) -> void:
 		await get_tree().create_timer(5).timeout
 
 		# 开始煎药流程
+		$NPC.visible = true
 		$NPC/Control.visible = false
 		$OpenDoor.play()
 		$NPC.play("NPC2_idle")
@@ -241,9 +243,10 @@ func _on_player_sit_on_chair(body: Node2D) -> void:
 		await get_tree().create_timer(1).timeout
 		GameManager.task = "走到药炉旁"
 		isGoinToJianyao = true
-		player.position = Vector2(112, 155)
+		player.position = Vector2(90, 155)
 		$Player/AnimatedSprite2D.play("idle")
 		player_can_move = true
+		
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -251,13 +254,11 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		var scene_res = load("uid://7nuo2s3t6q8g")
 		var scene_instance = scene_res.instantiate()
 		add_child(scene_instance)
-
+		print(scene_instance.finish)
 		# 等待场景进入树中、ready 完成
-		await scene_instance.ready
-
-		while not scene_instance.finish:
-			await get_tree().process_frame
-
+		while scene_instance.finish == false:
+			await get_tree().create_timer(0.1).timeout
+		print(scene_instance.finish)
 		var rating = scene_instance.rating
 		scene_instance.queue_free()
 		if rating == "S" or rating == "A":

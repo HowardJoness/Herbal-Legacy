@@ -10,7 +10,7 @@ extends CanvasLayer
 @onready var fire_slider_bg := $FireSlider/TextureRect
 @onready var fire_slider_handle := $FireSlider/TextureButton
 
-
+var rating := ""
 var finish = false
 
 var fire_value := 0.5  # 取值 0.0 ~ 1.0，代表火候大小
@@ -229,7 +229,6 @@ func _on_timer_timeout() -> void:
 	print(total_score)
 
 	# 初始化评级变量
-	var rating := ""
 	var idiom := ""
 	var comment := ""
 

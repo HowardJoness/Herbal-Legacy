@@ -4661,9 +4661,8 @@ shape = SubResource("RectangleShape2D_gtpik")
 visible = false
 position = Vector2(207, 97)
 sprite_frames = SubResource("SpriteFrames_1586v")
-animation = &"NPC2_idle"
+animation = &"NPC2_run_down"
 autoplay = "NPC1_idle"
-frame_progress = 0.715925
 
 [node name="Control" parent="NPC" instance=ExtResource("19_d1sna")]
 offset_left = 9.0
