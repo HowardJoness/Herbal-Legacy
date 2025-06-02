@@ -10,7 +10,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q20cq"]
 shader = ExtResource("3_c54au")
-shader_parameter/lod = 2.5
+shader_parameter/lod = 0.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lw8ef"]
 bg_color = Color(0.360784, 0.360784, 0.360784, 0.929412)

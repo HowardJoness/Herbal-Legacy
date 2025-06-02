@@ -10,6 +10,7 @@ extends CanvasLayer
 @onready var fire_slider_bg := $FireSlider/TextureRect
 @onready var fire_slider_handle := $FireSlider/TextureButton
 
+
 var finish = false
 
 var fire_value := 0.5  # 取值 0.0 ~ 1.0，代表火候大小

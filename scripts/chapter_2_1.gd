@@ -12,6 +12,7 @@ var player_reading := false
 @onready var paper := $CanvasLayer/Paperopen
 @onready var black_overlay := $ColorRect
 
+var isGoinToJianyao: bool = false
 var book_scene: PackedScene = preload("uid://dsal210ib2gbj")
 var book_instance: bool = false
 
@@ -40,7 +41,7 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	if player_can_move:
 		_handle_movement()
-
+	
 func _handle_movement():
 	if player_can_move == true:
 		var direction := Input.get_vector("left", "right", "up", "down")
@@ -220,24 +221,47 @@ func _on_player_sit_on_chair(body: Node2D) -> void:
 			await get_tree().create_timer(0.1).timeout
 		await get_tree().create_timer(5).timeout
 
-	# 开始煎药流程
-	$NPC/Control.visible = false
-	$OpenDoor.play()
-	$NPC.play("NPC2_idle")
-	await get_tree().create_timer(1).timeout
-	$NPC.play("NPC2_run_down")
-	var npc_target = Vector2(207, 183) # 目标坐标
-	var speed = 30.0
-	$Step.play()
-	while $NPC.global_position.distance_to(npc_target) > 1:
-		var direction = (npc_target - $NPC.global_position).normalized()
-		$NPC.global_position += direction * speed * get_process_delta_time()
-		await get_tree().process_frame
-	$Step.stop()
-	$NPC.play("NPC2_idle")
-	Dialogic.start("Chapter2_1_JianYao1")
-	await Dialogic.timeline_ended
-	await get_tree().create_timer(1).timeout
-	GameManager.task = "走到药炉旁"
-	
+		# 开始煎药流程
+		$NPC/Control.visible = false
+		$OpenDoor.play()
+		$NPC.play("NPC2_idle")
+		await get_tree().create_timer(1).timeout
+		$NPC.play("NPC2_run_down")
+		var npc_target = Vector2(207, 183) # 目标坐标
+		var speed = 30.0
+		$Step.play()
+		while $NPC.global_position.distance_to(npc_target) > 1:
+			var direction = (npc_target - $NPC.global_position).normalized()
+			$NPC.global_position += direction * speed * get_process_delta_time()
+			await get_tree().process_frame
+		$Step.stop()
+		$NPC.play("NPC2_idle")
+		Dialogic.start("Chapter2_1_JianYao1")
+		await Dialogic.timeline_ended
+		await get_tree().create_timer(1).timeout
+		GameManager.task = "走到药炉旁"
+		isGoinToJianyao = true
+		player.position = Vector2(112, 155)
+		$Player/AnimatedSprite2D.play("idle")
+		player_can_move = true
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		var scene_res = load("uid://7nuo2s3t6q8g")
+		var scene_instance = scene_res.instantiate()
+		add_child(scene_instance)
+
+		# 等待场景进入树中、ready 完成
+		await scene_instance.ready
+
+		while not scene_instance.finish:
+			await get_tree().process_frame
+
+		var rating = scene_instance.rating
+		scene_instance.queue_free()
+		if rating == "S" or rating == "A":
+			$CanvasLayer/Control._success()
+		else:
+			$CanvasLayer/Control._failed()
 	

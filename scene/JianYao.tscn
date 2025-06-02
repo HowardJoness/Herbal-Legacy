@@ -25,55 +25,188 @@
 shader = ExtResource("2_jokbn")
 shader_parameter/lod = 2.5
 
-[sub_resource type="Animation" id="Animation_wmt2j"]
-resource_name = "Step1"
+[sub_resource type="Animation" id="Animation_6f0gi"]
+resource_name = "Finish"
+length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Title:position")
+tracks/0/path = NodePath("FireSlider:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 0.5),
-"transitions": PackedFloat32Array(0.307, 1),
+"times": PackedFloat32Array(0.1, 0.366667),
+"transitions": PackedFloat32Array(0.307, 0.307),
 "update": 0,
-"values": [Vector2(573.845, 172), Vector2(475, 172)]
+"values": [Vector2(0, 0), Vector2(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Title:modulate")
+tracks/1/path = NodePath("FireSlider:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.0333333, 0.533333),
+"times": PackedFloat32Array(0.133333, 0.4),
 "transitions": PackedFloat32Array(0.307, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Control:modulate")
+tracks/2/path = NodePath("GUO:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.333333, 0.8),
+"times": PackedFloat32Array(0.1, 0.4),
 "transitions": PackedFloat32Array(0.307, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Vector2(0, 0), Vector2(0, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Control:position")
+tracks/3/path = NodePath("GUO:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.366667, 0.793056),
+"times": PackedFloat32Array(0.133333, 0.4),
 "transitions": PackedFloat32Array(0.307, 1),
 "update": 0,
-"values": [Vector2(167.035, -1), Vector2(0, -1)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Title:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.133333, 0.433333),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Title:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.133333, 0.4),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Vector2(474.735, 172), Vector2(474.737, 172)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Label:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.933333, 1.46667),
+"transitions": PackedFloat32Array(3.078, 3.078),
+"update": 0,
+"values": [Vector2(522, 321), Vector2(441.565, 321)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Label:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.166667, 0.433333, 1.36667, 1.4),
+"transitions": PackedFloat32Array(0.307, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("YaoluBag:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1.33333, 1.96667),
+"transitions": PackedFloat32Array(0.307, 0.307),
+"update": 0,
+"values": [Vector2(585, 343), Vector2(349.615, 343)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("YaoluBag:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1.36667, 1.4),
+"transitions": PackedFloat32Array(0.307, 0.307),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Step:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.166667, 0.433333),
+"transitions": PackedFloat32Array(0.307, 0.307),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Label2:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(1.33333, 1.96667),
+"transitions": PackedFloat32Array(0.307, 0.307),
+"update": 0,
+"values": [Vector2(416.47, 276), Vector2(653, 276)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Label2:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(1.36667, 1.4),
+"transitions": PackedFloat32Array(0.307, 0.307),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Label3:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(1.86667, 2.4),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Button:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(1.8, 2.33333),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_ujfg8"]
@@ -283,6 +416,57 @@ tracks/16/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_wmt2j"]
+resource_name = "Step1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.5),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Vector2(573.845, 172), Vector2(475, 172)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.533333),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.333333, 0.8),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.366667, 0.793056),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Vector2(167.035, -1), Vector2(0, -1)]
+}
+
 [sub_resource type="Animation" id="Animation_yxqox"]
 resource_name = "Step1_done"
 tracks/0/type = "value"
@@ -409,190 +593,6 @@ tracks/5/keys = {
 "values": [Vector2(573.845, 172), Vector2(474.735, 172)]
 }
 
-[sub_resource type="Animation" id="Animation_6f0gi"]
-resource_name = "Finish"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FireSlider:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 0.366667),
-"transitions": PackedFloat32Array(0.307, 0.307),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("FireSlider:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.133333, 0.4),
-"transitions": PackedFloat32Array(0.307, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("GUO:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.1, 0.4),
-"transitions": PackedFloat32Array(0.307, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("GUO:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.133333, 0.4),
-"transitions": PackedFloat32Array(0.307, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Title:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.133333, 0.433333),
-"transitions": PackedFloat32Array(0.307, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Title:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.133333, 0.4),
-"transitions": PackedFloat32Array(0.307, 1),
-"update": 0,
-"values": [Vector2(474.735, 172), Vector2(474.737, 172)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Label:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0.933333, 1.46667),
-"transitions": PackedFloat32Array(3.078, 3.078),
-"update": 0,
-"values": [Vector2(522, 321), Vector2(441.565, 321)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Label:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0.166667, 0.433333, 1.36667, 1.4),
-"transitions": PackedFloat32Array(0.307, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("YaoluBag:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(1.33333, 1.96667),
-"transitions": PackedFloat32Array(0.307, 0.307),
-"update": 0,
-"values": [Vector2(585, 343), Vector2(349.615, 343)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("YaoluBag:modulate")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(1.36667, 1.4),
-"transitions": PackedFloat32Array(0.307, 0.307),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Step:modulate")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0.166667, 0.433333),
-"transitions": PackedFloat32Array(0.307, 0.307),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Label2:position")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(1.33333, 1.96667),
-"transitions": PackedFloat32Array(0.307, 0.307),
-"update": 0,
-"values": [Vector2(416.47, 276), Vector2(653, 276)]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Label2:modulate")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(1.36667, 1.4),
-"transitions": PackedFloat32Array(0.307, 0.307),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Label3:modulate")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(1.86667, 2.4),
-"transitions": PackedFloat32Array(0.307, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Button:modulate")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(1.8, 2.33333),
-"transitions": PackedFloat32Array(0.307, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4em7j"]
 _data = {
 &"Finish": SubResource("Animation_6f0gi"),
@@ -637,6 +637,7 @@ animations = [{
 script = ExtResource("1_sht6q")
 
 [node name="59a83d2Ec20Bced3d8185Be0Ae3a212" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(576, 324)
 scale = Vector2(1.91362, 1.8)
 texture = ExtResource("1_efoha")
@@ -661,6 +662,7 @@ offset_right = 40.0
 offset_bottom = 39.0
 
 [node name="Shaguo" type="TextureButton" parent="Control"]
+layout_mode = 0
 offset_left = 186.0
 offset_top = 259.0
 offset_right = 722.0
@@ -671,6 +673,7 @@ texture_pressed = ExtResource("9_yxqox")
 texture_hover = ExtResource("10_ynolt")
 
 [node name="Buxiugangguo" type="TextureButton" parent="Control"]
+layout_mode = 0
 offset_left = 645.3
 offset_top = 259.0
 offset_right = 1181.3
@@ -682,9 +685,9 @@ texture_hover = ExtResource("13_isf3k")
 
 [node name="Title" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = 573.845
+offset_left = 474.735
 offset_top = 172.0
-offset_right = 776.845
+offset_right = 677.735
 offset_bottom = 202.0
 theme_override_fonts/font = ExtResource("6_2lv7e")
 theme_override_font_sizes/font_size = 29
@@ -717,7 +720,7 @@ position = Vector2(98.79, 0)
 position = Vector2(578, 431)
 scale = Vector2(0.136616, 0.136616)
 sprite_frames = SubResource("SpriteFrames_qvpkq")
-frame_progress = 0.14452
+frame_progress = 0.540587
 
 [node name="YAOGUO" type="AnimatedSprite2D" parent="GUO"]
 position = Vector2(576, 355)
@@ -729,8 +732,7 @@ frame_progress = 0.391831
 modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 0
-offset_left = 82.395
-offset_right = 122.395
+offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="TextureRect" type="TextureRect" parent="FireSlider"]
@@ -756,9 +758,9 @@ wait_time = 30.0
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = 522.0
+offset_left = 441.565
 offset_top = 321.0
-offset_right = 650.0
+offset_right = 569.565
 offset_bottom = 366.0
 theme_override_fonts/font = ExtResource("6_2lv7e")
 theme_override_font_sizes/font_size = 32
@@ -766,9 +768,9 @@ text = "任务完成"
 
 [node name="Label2" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = 653.0
+offset_left = 652.995
 offset_top = 276.0
-offset_right = 913.0
+offset_right = 912.995
 offset_bottom = 417.0
 theme_override_fonts/font = ExtResource("6_2lv7e")
 theme_override_font_sizes/font_size = 40
