@@ -1,11 +1,10 @@
-[gd_scene load_steps=63 format=4 uid="uid://g0x1c5b5amcg"]
+[gd_scene load_steps=44 format=4 uid="uid://g0x1c5b5amcg"]
 
 [ext_resource type="Texture2D" uid="uid://ursmgy12k2mg" path="res://imgs/TopDownHouse_FloorsAndWalls.png" id="1_g5dot"]
 [ext_resource type="Texture2D" uid="uid://dahh8ipjkac0w" path="res://imgs/Interiors_free_16x16.png" id="1_lwkb3"]
 [ext_resource type="Script" uid="uid://7ro02vfyowmu" path="res://scripts/chapter_1_2.gd" id="1_s8x5g"]
 [ext_resource type="Texture2D" uid="uid://deygly1a8jc1b" path="res://imgs/FreePixel.png" id="2_yi8e8"]
-[ext_resource type="Texture2D" uid="uid://b6pyofqfgldif" path="res://imgs/idle_right_down.png" id="4_onqga"]
-[ext_resource type="Texture2D" uid="uid://7h3efglmgmaw" path="res://imgs/walk_right_down.png" id="5_msakc"]
+[ext_resource type="PackedScene" uid="uid://cut7omif2sts" path="res://scene/player.tscn" id="5_pd5fl"]
 [ext_resource type="Texture2D" uid="uid://cvs2xs0wll04x" path="res://imgs/IDLE.png" id="7_s22hq"]
 [ext_resource type="Texture2D" uid="uid://cwbyxwnk55dso" path="res://imgs/oldbook/cover.png" id="8_rmiaj"]
 [ext_resource type="AudioStream" uid="uid://dh4ftxrdl0jhw" path="res://audio/rainy.mp3" id="9_twvno"]
@@ -1418,134 +1417,6 @@ texture = ExtResource("1_lwkb3")
 sources/0 = SubResource("TileSetAtlasSource_dghk5")
 sources/1 = SubResource("TileSetAtlasSource_yiao2")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nya6j"]
-atlas = ExtResource("4_onqga")
-region = Rect2(0, 0, 48, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_od1r1"]
-atlas = ExtResource("4_onqga")
-region = Rect2(48, 0, 48, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kolsv"]
-atlas = ExtResource("4_onqga")
-region = Rect2(96, 0, 48, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_st8sv"]
-atlas = ExtResource("4_onqga")
-region = Rect2(144, 0, 48, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_faqrr"]
-atlas = ExtResource("4_onqga")
-region = Rect2(192, 0, 48, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bji6w"]
-atlas = ExtResource("4_onqga")
-region = Rect2(240, 0, 48, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ua4f3"]
-atlas = ExtResource("4_onqga")
-region = Rect2(288, 0, 48, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1btgi"]
-atlas = ExtResource("4_onqga")
-region = Rect2(336, 0, 48, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d6cmg"]
-atlas = ExtResource("5_msakc")
-region = Rect2(0, 0, 48, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0vlc0"]
-atlas = ExtResource("5_msakc")
-region = Rect2(48, 0, 48, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_63rqa"]
-atlas = ExtResource("5_msakc")
-region = Rect2(96, 0, 48, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pl8og"]
-atlas = ExtResource("5_msakc")
-region = Rect2(144, 0, 48, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nbx70"]
-atlas = ExtResource("5_msakc")
-region = Rect2(192, 0, 48, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ioauw"]
-atlas = ExtResource("5_msakc")
-region = Rect2(240, 0, 48, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eeiyf"]
-atlas = ExtResource("5_msakc")
-region = Rect2(288, 0, 48, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oqpdo"]
-atlas = ExtResource("5_msakc")
-region = Rect2(336, 0, 48, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0nudp"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nya6j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_od1r1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kolsv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_st8sv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_faqrr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bji6w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ua4f3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1btgi")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d6cmg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0vlc0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_63rqa")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pl8og")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nbx70")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ioauw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eeiyf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oqpdo")
-}],
-"loop": true,
-"name": &"run",
-"speed": 10.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5pdi1"]
-size = Vector2(15, 26)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_o2ex1"]
 atlas = ExtResource("7_s22hq")
 region = Rect2(0, 0, 96, 96)
@@ -1827,27 +1698,8 @@ tile_set = SubResource("TileSet_ry7sb")
 tile_map_data = PackedByteArray("AAASAAEAAAAKAAQAAAASAAIAAAAKAAUAAAATAAEAAAALAAQAAAATAAIAAAALAAUAAAAUAAEAAAAMAAQAAAAUAAIAAAAMAAUAAAAVAAEAAAANAAQAAAAVAAIAAAANAAUAAAASAAQAAAAMAAIAAAASAAUAAAAMAAMAAAATAAQAAAANAAIAAAATAAUAAAANAAMAAAAUAAQAAAAOAAIAAAAUAAUAAAAOAAMAAAAVAAQAAAAPAAIAAAAVAAUAAAAPAAMAAAAaAAsAAAABAAAAAFAaAAwAAAACAAAAAFAZAAsAAAABAAEAAFAZAAwAAAACAAEAAFAYAAsAAAABAAIAAFAYAAwAAAACAAIAAFAXAAsAAAABAAMAAFAXAAwAAAACAAMAAFAaAAkAAAABAAAAAFAaAAoAAAACAAAAAFAZAAkAAAABAAEAAFAZAAoAAAACAAEAAFAYAAkAAAABAAIAAFAYAAoAAAACAAIAAFAXAAkAAAABAAMAAFAXAAoAAAACAAMAAFABAAAAAAAKAAAAAAABAAEAAAAKAAEAAAACAAAAAAALAAAAAAACAAEAAAALAAEAAAAFAAAAAAAKAAIAAAAFAAEAAAAKAAMAAAAGAAAAAAALAAIAAAAGAAEAAAALAAMAAAAYAAcAAAAEAAQAAAAYAAgAAAAEAAUAAAAZAAcAAAAFAAQAAAAZAAgAAAAFAAUAAAAPAAQAAAAOAAQAAGAPAAMAAAAPAAQAAGAQAAQAAAAOAAUAAGAQAAMAAAAPAAUAAGAYAAMAAAAOAAQAAFAYAAQAAAAPAAQAAFAXAAMAAAAOAAUAAFAXAAQAAAAPAAUAAFACAAYAAAAEAAEAAFACAAcAAAAFAAEAAFACAAgAAAAGAAEAAFACAAkAAAAHAAEAAFABAAYAAAAEAAIAAFABAAcAAAAFAAIAAFABAAgAAAAGAAIAAFABAAkAAAAHAAIAAFA=")
 tile_set = SubResource("TileSet_7cus2")
 
-[node name="Player" type="CharacterBody2D" parent="."]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-position = Vector2(103, 62)
-sprite_frames = SubResource("SpriteFrames_0nudp")
-animation = &"run"
-autoplay = "idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(103.5, 61)
-shape = SubResource("RectangleShape2D_5pdi1")
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(104, 66)
-zoom = Vector2(3.845, 3.845)
-limit_left = 0
-limit_top = 0
-limit_right = 432
-limit_bottom = 224
-limit_smoothed = true
-position_smoothing_enabled = true
+[node name="Player" parent="." instance=ExtResource("5_pd5fl")]
+position = Vector2(-517, -173)
 
 [node name="Grandpa" type="CharacterBody2D" parent="."]
 

@@ -3,6 +3,8 @@ extends CanvasLayer
 """
 你好awa
 这里是 Herbal Legacy 的 GameManager部分~，用来播放一些bgm以及对游戏进行一些调控啦~
+
+2025/07/09注：我草我写的日志好几把恶心
 """
 
 var task: String = "" # 任务名称

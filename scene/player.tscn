@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://b6pyofqfgldif" path="res://imgs/idle_right_down.png" id="1_hjaqi"]
 [ext_resource type="Texture2D" uid="uid://7h3efglmgmaw" path="res://imgs/walk_right_down.png" id="2_fvtld"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4jxa"]
+size = Vector2(7.5, 13)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_cu74j"]
 atlas = ExtResource("1_hjaqi")
 region = Rect2(0, 0, 48, 64)
@@ -129,23 +132,20 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4jxa"]
-size = Vector2(7.5, 13)
-
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_fvtld")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(593.75, 196.667)
+shape = SubResource("RectangleShape2D_s4jxa")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(587, 217)
+position = Vector2(593.75, 196.667)
 scale = Vector2(0.489583, 0.489583)
 sprite_frames = SubResource("SpriteFrames_ct4mp")
 animation = &"run"
 autoplay = "idle"
-frame_progress = 0.779031
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(587, 217)
-shape = SubResource("RectangleShape2D_s4jxa")
+frame_progress = 0.693853
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(594, 312)

@@ -1,15 +1,16 @@
 extends Node2D
 var grandpa_is_alive = true
-var nottalking = true
 var PlotAlreadyPlayed: bool = false
 var FinishAnimation:bool = false
+@onready var Player: CharacterBody2D = $Player
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameManager.Gaming = true
 	$CanvasLayer/White.visible = false
 	GameManager.scenedebug = "..."
-	
-	$Player.add_to_group("player")
+	Player.moveable = true
+	Player.add_to_group("player")
 	$Button.modulate.a = 1
 	$Button.visible = false
 	$Cover.visible = false
@@ -32,30 +33,6 @@ func _process(delta: float) -> void:
 		$RainBGM.play()
 
 
-func _physics_process(delta: float) -> void:
-	
-	# 处理玩家移动
-	var direction = Input.get_vector("left", "right", "up", "down") # Y轴顺序改了！
-	if nottalking:
-		
-		if Input.is_action_pressed("fast"):
-			$Player.velocity = direction * 100
-			$Player.move_and_slide()
-		else:
-			$Player.velocity = direction * 50
-			$Player.move_and_slide()
-		if direction[0] != 0 or direction[1] != 0:
-			$Player/AnimatedSprite2D.play("run")
-			if not($Step.playing):
-				$Step.play()
-		else:
-			$Player/AnimatedSprite2D.play("idle")
-			$Step.stop()
-		if $Player.velocity.x < 0:
-			$Player/AnimatedSprite2D.flip_h = true  # 朝左
-		elif $Player.velocity.x > 0:
-			$Player/AnimatedSprite2D.flip_h = false # 朝右
-
 
 func _on_grand_pa_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
@@ -77,7 +54,7 @@ func _on_button_pressed() -> void:
 	
 	$Button.visible = false
 	$Button.disabled = true
-	nottalking = false
+	Player.moveable = false
 	GameManager.tips = ""
 	GameManager.task = ""
 	$Grandpa/AnimatedSprite2D.stop()
@@ -88,7 +65,7 @@ func _on_button_pressed() -> void:
 	
 	
 func _on_dialogue_finished():
-	nottalking = true
+	Player.moveable = true
 	grandpa_is_alive = false
 	$Grandpa.queue_free()
 	await get_tree().create_timer(1).timeout
