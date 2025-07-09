@@ -1,12 +1,14 @@
 extends Node2D
 
+@onready var Player:CharacterBody2D = $Player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameManager.scenedebug = "..."
 	var position: String = "a"
 	print("来到场景")
-	$CharacterBody2D.add_to_group("player")
+	Player.add_to_group("player")
+	
 	$ColorRect.modulate.a = 1
 	GameManager.GameBegin()
 	Dialogic.start("Character1_1_FindGrandFather")
@@ -24,27 +26,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
-func _physics_process(delta: float) -> void:
-	# 处理玩家移动
-	var direction = Input.get_vector("left", "right", "up", "down") # Y轴顺序改了！
-	if Input.is_action_pressed("fast"):
-		$CharacterBody2D.velocity = direction * 150
-		$CharacterBody2D.move_and_slide()
-	else:
-		$CharacterBody2D.velocity = direction * 50
-		$CharacterBody2D.move_and_slide()
-	if direction[0] != 0 or direction[1] != 0:
-		$CharacterBody2D/AnimatedSprite2D.play("run")
-		if not($Step.playing):
-			$Step.play()
-	else:
-		$CharacterBody2D/AnimatedSprite2D.play("idle")
-		$Step.stop()
-	if $CharacterBody2D.velocity.x < 0:
-		$CharacterBody2D/AnimatedSprite2D.flip_h = true  # 朝左
-	elif $CharacterBody2D.velocity.x > 0:
-		$CharacterBody2D/AnimatedSprite2D.flip_h = false # 朝右
 
 # 当有东西进入了房间时
 func _on_area_2d_body_entered(body: Node2D) -> void:
