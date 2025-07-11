@@ -4,6 +4,7 @@
 
 [node name="DebugWindow" type="CanvasLayer"]
 layer = 10
+visible = false
 script = ExtResource("1_8osiw")
 
 [node name="ColorRect" type="ColorRect" parent="."]
