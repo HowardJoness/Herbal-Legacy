@@ -27,11 +27,12 @@ GameManager="*res://scene/game_manager.tscn"
 
 directories/dch_directory={
 "GrandFather": "res://Timeline/GrandFather.dch",
-"Jack": "res://Timeline/Jack.dch",
-"Mike": "res://Timeline/Mike.dch",
-"MrGao": "res://Timeline/MrGao.dch",
 "Player": "res://Timeline/Player.dch",
-"Skai": "res://Timeline/Skai.dch"
+"沈子悠": "res://Timeline/沈子悠.dch",
+"简念秋": "res://Timeline/简念秋.dch",
+"苏语澄": "res://Timeline/苏语澄.dch",
+"贺灵柯": "res://Timeline/贺灵柯.dch",
+"陆霁然": "res://Timeline/陆霁然.dch"
 }
 directories/dtl_directory={
 "Chapter2_1_BaMai1": "res://Timeline/Chapter2_1_BaMai1.dtl",
@@ -39,6 +40,7 @@ directories/dtl_directory={
 "Chapter2_1_BaMai3": "res://Timeline/Chapter2_1_BaMai3.dtl",
 "Chapter2_1_JianYao1": "res://Timeline/Chapter2_1_JianYao1.dtl",
 "Chapter2_1_JianYao1_result": "res://Timeline/Chapter2_1_JianYao1_result.dtl",
+"Chapter2_1_JianYao1_result_badend": "res://Timeline/Chapter2_1_JianYao1_result_badend.dtl",
 "Chapter2_1_PlayerAwake1": "res://Timeline/Chapter2_1_PlayerAwake1.dtl",
 "Character1_1_FindGrandFather": "res://Timeline/Character1_1_FindGrandFather.dtl",
 "Character1_2_TalkWithGrandFather": "res://Timeline/Character1_2_TalkWithGrandFather.dtl"

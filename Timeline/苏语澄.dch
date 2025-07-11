@@ -2,17 +2,17 @@
 "@path": "res://addons/dialogic/Resources/character.gd",
 "@subpath": NodePath(""),
 &"_translation_id": "",
-&"color": Color(0, 0.859375, 1, 1),
+&"color": Color(0.840544, 0.498962, 0.851563, 1),
 &"custom_info": {
 "sound_mood_default": "",
 "sound_moods": {},
 "style": ""
 },
 &"default_portrait": "",
-&"description": "韩信是育华村出了名的体育健将，曾带领他的徒弟获得全市体育竞赛一等奖。",
-&"display_name": "韩信",
+&"description": "",
+&"display_name": "苏语澄",
 &"mirror": false,
-&"nicknames": ["韩信"],
+&"nicknames": ["苏语澄"],
 &"offset": Vector2(0, 0),
 &"portraits": {},
 &"scale": 1.0

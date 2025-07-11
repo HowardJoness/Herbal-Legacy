@@ -2,7 +2,7 @@
 "@path": "res://addons/dialogic/Resources/character.gd",
 "@subpath": NodePath(""),
 &"_translation_id": "",
-&"color": Color(0.279948, 0.559896, 0.284322, 1),
+&"color": Color(1, 0.640625, 0, 1),
 &"custom_info": {
 "sound_mood_default": "",
 "sound_moods": {},
@@ -10,9 +10,9 @@
 },
 &"default_portrait": "",
 &"description": "",
-&"display_name": "爷爷",
+&"display_name": "陆霁然",
 &"mirror": false,
-&"nicknames": ["爷爷"],
+&"nicknames": ["陆霁然"],
 &"offset": Vector2(0, 0),
 &"portraits": {},
 &"scale": 1.0

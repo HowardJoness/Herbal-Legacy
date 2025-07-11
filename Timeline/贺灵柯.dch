@@ -2,17 +2,17 @@
 "@path": "res://addons/dialogic/Resources/character.gd",
 "@subpath": NodePath(""),
 &"_translation_id": "",
-&"color": Color(0.957031, 0.306549, 0.702937, 1),
+&"color": Color(0.427083, 0.641927, 1, 1),
 &"custom_info": {
 "sound_mood_default": "",
 "sound_moods": {},
 "style": ""
 },
 &"default_portrait": "",
-&"description": "高豪淼是育华村一位克隆人。",
-&"display_name": "高豪淼",
+&"description": "",
+&"display_name": "贺灵柯",
 &"mirror": false,
-&"nicknames": ["高豪淼"],
+&"nicknames": ["贺灵柯"],
 &"offset": Vector2(0, 0),
 &"portraits": {},
 &"scale": 1.0
