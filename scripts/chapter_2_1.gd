@@ -11,12 +11,14 @@ var player_reading := false
 @onready var step_sound := $Step
 @onready var paper := $CanvasLayer/Paperopen
 @onready var black_overlay := $ColorRect
-
+var now_npc: int = 1 # 现在出场的NPC编号
 var now_timeline_status = 1 # 1: 剧情刚刚开始（玩家还没坐到过椅子上）  2：玩家已经坐到椅子上了，已经开始工作了 3：玩家已经过关了煎药1 4：过关煎药2
+var now_character = "NPC1"
 var isinyaolu:bool = false
 var isGoinToJianyao: bool = false
 var book_scene: PackedScene = preload("uid://dsal210ib2gbj")
 var book_instance: bool = false
+
 
 func _ready():
 	GameManager.developer_mode = true
@@ -194,7 +196,8 @@ func _on_player_sit_on_chair(body: Node2D) -> void:
 			await get_tree().create_timer(0.002).timeout
 		await get_tree().create_timer(2.35).timeout
 		 #启动把脉对话
-		_Bamai("Chapter2_1_BaMai1", "气血两虚", "NPC1")
+		now_character = "NPC1"
+		_Bamai("Chapter2_1_BaMai1", "气血两虚", now_character)
 		
 		# 等待对话结束
 		while Dialogic.current_timeline != null:
@@ -205,33 +208,34 @@ func _on_player_sit_on_chair(body: Node2D) -> void:
 			await get_tree().create_timer(0.1).timeout
 		await get_tree().create_timer(3.12).timeout
 		#
-	#
-		#_Bamai("Chapter2_1_BaMai2", "脾胃虚弱", "NPC2")
-		#
-		#while Dialogic.current_timeline != null:
-			#await get_tree().create_timer(0.1).timeout
-		#while $CanvasLayer/Control.is_in_UI ==false:
-			#await get_tree().create_timer(0.1).timeout
-		#while $CanvasLayer/Control.is_in_UI ==true:
-			#await get_tree().create_timer(0.1).timeout
-		#await get_tree().create_timer(3.12).timeout
-		#_Bamai("Chapter2_1_BaMai3", "阴虚内热", "NPC1")
-		#while Dialogic.current_timeline != null:
-			#await get_tree().create_timer(0.1).timeout
-		#while $CanvasLayer/Control.is_in_UI ==false:
-			#await get_tree().create_timer(0.1).timeout
-		#while $CanvasLayer/Control.is_in_UI ==true:
-			#await get_tree().create_timer(0.1).timeout
-		#await get_tree().create_timer(5).timeout
-
+		now_character = "NPC2"
+		_Bamai("Chapter2_1_BaMai2", "脾胃虚弱", now_character)
+		
+		while Dialogic.current_timeline != null:
+			await get_tree().create_timer(0.1).timeout
+		while $CanvasLayer/Control.is_in_UI ==false:
+			await get_tree().create_timer(0.1).timeout
+		while $CanvasLayer/Control.is_in_UI ==true:
+			await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(3.12).timeout
+		now_character = "NPC3"
+		_Bamai("Chapter2_1_BaMai3", "阴虚内热", now_character)
+		while Dialogic.current_timeline != null:
+			await get_tree().create_timer(0.1).timeout
+		while $CanvasLayer/Control.is_in_UI ==false:
+			await get_tree().create_timer(0.1).timeout
+		while $CanvasLayer/Control.is_in_UI ==true:
+			await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(5).timeout
+		now_character = "NPC4"
 		# Chapter2_1_Jianyao1 流程开启
 		player_can_move = false
 		$NPC.visible = true
 		$NPC/Control.visible = false
 		$OpenDoor.play()
-		$NPC.play("NPC2_idle")
+		$NPC.play(now_character+"_idle")
 		await get_tree().create_timer(1).timeout
-		$NPC.play("NPC2_run_down")
+		$NPC.play(now_character+"_run_down")
 		var npc_target = Vector2(207, 183) # 目标坐标
 		var speed = 30.0
 		$Step.play()
@@ -240,7 +244,7 @@ func _on_player_sit_on_chair(body: Node2D) -> void:
 			$NPC.global_position += direction * speed * get_process_delta_time()
 			await get_tree().process_frame
 		$Step.stop()
-		$NPC.play("NPC2_idle")
+		$NPC.play(now_character+"_idle")
 		Dialogic.start("Chapter2_1_JianYao1")
 		await Dialogic.timeline_ended
 		await get_tree().create_timer(1).timeout
@@ -253,15 +257,15 @@ func _on_player_sit_on_chair(body: Node2D) -> void:
 			await get_tree().create_timer(0.1).timeout
 		await get_tree().create_timer(1).timeout
 		
-		
+		now_character = "NPC5"
 		# Chapter2_1_Jianyao2 流程开启
 		player_can_move = false
 		$NPC.visible = true
 		$NPC/Control.visible = false
 		$OpenDoor.play()
-		$NPC.play("NPC2_idle")
+		$NPC.play(now_character+"_idle")
 		await get_tree().create_timer(1).timeout
-		$NPC.play("NPC2_run_down")
+		$NPC.play(now_character+"_run_down")
 		npc_target = Vector2(207, 183) # 目标坐标
 		speed = 30.0
 		$Step.play()
@@ -270,7 +274,7 @@ func _on_player_sit_on_chair(body: Node2D) -> void:
 			$NPC.global_position += direction * speed * get_process_delta_time()
 			await get_tree().process_frame
 		$Step.stop()
-		$NPC.play("NPC2_idle")
+		$NPC.play(now_character+"_idle")
 		Dialogic.start("Chapter2_1_JianYao2")
 		await Dialogic.timeline_ended
 		await get_tree().create_timer(1).timeout
@@ -318,7 +322,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			Dialogic.start("Chapter2_1_JianYao"+str(now_timeline_status-1)+"_result_badend")
 		await Dialogic.timeline_ended
 		await get_tree().create_timer(1).timeout
-		$NPC.play("NPC2_run_up")
+		$NPC.play(now_character+"_run_up")
 		print(Dialogic.current_timeline)
 		var npc_target = Vector2(207, 91) # 目标坐标
 		$Step.play()
@@ -337,3 +341,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			Dialogic.start("Chapter2_1_JianYao"+str(now_timeline_status-1)+"_result_badend")
 			$CanvasLayer/Control._failed()
 		GameManager._loseJudge()
+		

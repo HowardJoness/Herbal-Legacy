@@ -20,6 +20,7 @@ offset_right = 138.0
 offset_bottom = 639.0
 theme_override_fonts/font = ExtResource("2_vt5gh")
 theme_override_font_sizes/font_size = 32
+text = "按 G 启动原神"
 vertical_alignment = 2
 
 [node name="Task" type="Label" parent="."]
@@ -30,4 +31,4 @@ offset_right = 134.0
 offset_bottom = 51.0
 theme_override_fonts/font = ExtResource("2_vt5gh")
 theme_override_font_sizes/font_size = 32
-text = "aaaaaaa"
+text = "任务：PLay Genshin Impact"
