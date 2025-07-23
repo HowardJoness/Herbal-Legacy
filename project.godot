@@ -43,6 +43,7 @@ directories/dtl_directory={
 "Chapter2_1_JianYao1_result_badend": "res://Timeline/Chapter2_1_JianYao1_result_badend.dtl",
 "Chapter2_1_JianYao2": "res://Timeline/Chapter2_1_JianYao2.dtl",
 "Chapter2_1_JianYao2_result": "res://Timeline/Chapter2_1_JianYao2_result.dtl",
+"Chapter2_1_JianYao2_result_badend": "res://Timeline/Chapter2_1_JianYao2_result_badend.dtl",
 "Chapter2_1_PlayerAwake1": "res://Timeline/Chapter2_1_PlayerAwake1.dtl",
 "Character1_1_FindGrandFather": "res://Timeline/Character1_1_FindGrandFather.dtl",
 "Character1_2_TalkWithGrandFather": "res://Timeline/Character1_2_TalkWithGrandFather.dtl"

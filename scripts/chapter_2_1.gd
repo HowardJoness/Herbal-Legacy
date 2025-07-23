@@ -195,38 +195,7 @@ func _on_player_sit_on_chair(body: Node2D) -> void:
 			$CanvasLayer/Control.modulate.a = 0.0 + i * 0.05
 			await get_tree().create_timer(0.002).timeout
 		await get_tree().create_timer(2.35).timeout
-		 #启动把脉对话
-		now_character = "NPC1"
-		_Bamai("Chapter2_1_BaMai1", "气血两虚", now_character)
-		
-		# 等待对话结束
-		while Dialogic.current_timeline != null:
-			await get_tree().create_timer(0.1).timeout
-		while $CanvasLayer/Control.is_in_UI ==false:
-			await get_tree().create_timer(0.1).timeout
-		while $CanvasLayer/Control.is_in_UI ==true:
-			await get_tree().create_timer(0.1).timeout
-		await get_tree().create_timer(3.12).timeout
-		#
-		now_character = "NPC2"
-		_Bamai("Chapter2_1_BaMai2", "脾胃虚弱", now_character)
-		
-		while Dialogic.current_timeline != null:
-			await get_tree().create_timer(0.1).timeout
-		while $CanvasLayer/Control.is_in_UI ==false:
-			await get_tree().create_timer(0.1).timeout
-		while $CanvasLayer/Control.is_in_UI ==true:
-			await get_tree().create_timer(0.1).timeout
-		await get_tree().create_timer(3.12).timeout
-		now_character = "NPC3"
-		_Bamai("Chapter2_1_BaMai3", "阴虚内热", now_character)
-		while Dialogic.current_timeline != null:
-			await get_tree().create_timer(0.1).timeout
-		while $CanvasLayer/Control.is_in_UI ==false:
-			await get_tree().create_timer(0.1).timeout
-		while $CanvasLayer/Control.is_in_UI ==true:
-			await get_tree().create_timer(0.1).timeout
-		await get_tree().create_timer(5).timeout
+		 ##启动把脉对话23
 		now_character = "NPC4"
 		# Chapter2_1_Jianyao1 流程开启
 		player_can_move = false
@@ -259,6 +228,7 @@ func _on_player_sit_on_chair(body: Node2D) -> void:
 		
 		now_character = "NPC5"
 		# Chapter2_1_Jianyao2 流程开启
+		now_timeline_status = 2
 		player_can_move = false
 		$NPC.visible = true
 		$NPC/Control.visible = false
@@ -291,6 +261,7 @@ func _on_player_sit_on_chair(body: Node2D) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		player_can_move = false
+		$Player/AnimatedSprite2D.play("idle")
 		var scene_res = load("uid://7nuo2s3t6q8g")
 		var scene_instance = scene_res.instantiate()
 		add_child(scene_instance)
@@ -307,7 +278,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			black_overlay.modulate.a = 0.0 + i * 0.01
 			await get_tree().create_timer(0.01).timeout
 		await get_tree().create_timer(0.1).timeout
-		
+			
 		sprite.play("idle_up")
 		
 		player.position = Vector2(113,155)
@@ -334,11 +305,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		$OpenDoor.play()
 		$NPC.visible =false
 		now_timeline_status = 3
+		# 结算动画
 		if rating == "S" or rating == "A":
-			Dialogic.start("Chapter2_1_JianYao"+str(now_timeline_status-1)+"_result")
 			$CanvasLayer/Control._success()
 		else:
-			Dialogic.start("Chapter2_1_JianYao"+str(now_timeline_status-1)+"_result_badend")
 			$CanvasLayer/Control._failed()
 		GameManager._loseJudge()
 		

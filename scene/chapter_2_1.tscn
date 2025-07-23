@@ -2317,6 +2317,80 @@ animations = [{
 "loop": true,
 "name": &"NPC3_run_down",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8uum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sb5n1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olc8s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6v4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31dus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4b7ne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0javy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndx8e")
+}],
+"loop": true,
+"name": &"NPC3_run_up",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bae47")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xr5oi")
+}],
+"loop": true,
+"name": &"NPC4_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pq42c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evb2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1aoqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mneqx")
+}],
+"loop": true,
+"name": &"NPC4_run_down",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1sna")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dt0xw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1586v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nk3o")
+}],
+"loop": true,
+"name": &"NPC4_run_up",
+"speed": 7.0
 }]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6yj2q"]
@@ -4671,7 +4745,6 @@ normal = Vector2(-1, 0)
 size = Vector2(34, 37)
 
 [node name="Chapter2_1" type="Node2D"]
-position = Vector2(-1, 0)
 script = ExtResource("1_utpsi")
 metadata/_edit_vertical_guides_ = [288.0]
 metadata/_edit_horizontal_guides_ = [16.0, 256.0]
@@ -4769,9 +4842,10 @@ position = Vector2(216, 234.25)
 shape = SubResource("RectangleShape2D_gtpik")
 
 [node name="NPC" type="AnimatedSprite2D" parent="."]
-position = Vector2(177, 94)
+visible = false
+position = Vector2(207, 88)
 sprite_frames = SubResource("SpriteFrames_1586v")
-animation = &"NPC1_idle"
+animation = &"NPC4_idle"
 autoplay = "NPC1_idle"
 
 [node name="Control" parent="NPC" instance=ExtResource("19_d1sna")]
@@ -4845,10 +4919,6 @@ texture = ExtResource("12_h8l63")
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource("15_vomsd")]
 modulate = Color(1, 1, 1, 0)
-offset_left = -39.0
-offset_top = 4.0
-offset_right = -39.0
-offset_bottom = 4.0
 
 [node name="CanReadBookArea" type="Area2D" parent="."]
 
@@ -4887,7 +4957,7 @@ shape = SubResource("WorldBoundaryShape2D_ji0h6")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(48, 89.5)
+position = Vector2(49, 90)
 shape = SubResource("RectangleShape2D_ji0h6")
 
 [node name="ColorRect" type="ColorRect" parent="."]
